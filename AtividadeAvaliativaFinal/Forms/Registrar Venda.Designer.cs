@@ -29,8 +29,6 @@
         private void InitializeComponent()
         {
             label1 = new Label();
-            textBox1 = new TextBox();
-            textBox2 = new TextBox();
             textBox3 = new TextBox();
             textBox4 = new TextBox();
             textBox5 = new TextBox();
@@ -52,6 +50,8 @@
             label5 = new Label();
             label6 = new Label();
             label7 = new Label();
+            cbSelecionarClienteRegistrarVenda = new ComboBox();
+            cbSelecionarProdutoRegistrarProduto = new ComboBox();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             SuspendLayout();
             // 
@@ -64,20 +64,6 @@
             label1.TabIndex = 0;
             label1.Text = "Registrar vendas";
             label1.TextAlign = ContentAlignment.MiddleCenter;
-            // 
-            // textBox1
-            // 
-            textBox1.Location = new Point(159, 55);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(464, 23);
-            textBox1.TabIndex = 1;
-            // 
-            // textBox2
-            // 
-            textBox2.Location = new Point(159, 99);
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(464, 23);
-            textBox2.TabIndex = 2;
             // 
             // textBox3
             // 
@@ -235,11 +221,29 @@
             label7.TabIndex = 23;
             label7.Text = "Quantidade a ser comprada:";
             // 
+            // cbSelecionarClienteRegistrarVenda
+            // 
+            cbSelecionarClienteRegistrarVenda.FormattingEnabled = true;
+            cbSelecionarClienteRegistrarVenda.Location = new Point(159, 52);
+            cbSelecionarClienteRegistrarVenda.Name = "cbSelecionarClienteRegistrarVenda";
+            cbSelecionarClienteRegistrarVenda.Size = new Size(406, 23);
+            cbSelecionarClienteRegistrarVenda.TabIndex = 24;
+            // 
+            // cbSelecionarProdutoRegistrarProduto
+            // 
+            cbSelecionarProdutoRegistrarProduto.FormattingEnabled = true;
+            cbSelecionarProdutoRegistrarProduto.Location = new Point(159, 99);
+            cbSelecionarProdutoRegistrarProduto.Name = "cbSelecionarProdutoRegistrarProduto";
+            cbSelecionarProdutoRegistrarProduto.Size = new Size(406, 23);
+            cbSelecionarProdutoRegistrarProduto.TabIndex = 25;
+            // 
             // Registrar_Venda
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+            Controls.Add(cbSelecionarProdutoRegistrarProduto);
+            Controls.Add(cbSelecionarClienteRegistrarVenda);
             Controls.Add(label7);
             Controls.Add(label6);
             Controls.Add(label5);
@@ -254,8 +258,6 @@
             Controls.Add(textBox5);
             Controls.Add(textBox4);
             Controls.Add(textBox3);
-            Controls.Add(textBox2);
-            Controls.Add(textBox1);
             Controls.Add(label1);
             Name = "Registrar_Venda";
             Text = "Registrar_Venda";
@@ -267,8 +269,6 @@
         #endregion
 
         private Label label1;
-        private TextBox textBox1;
-        private TextBox textBox2;
         private TextBox textBox3;
         private TextBox textBox4;
         private TextBox textBox5;
@@ -290,5 +290,7 @@
         private Label label5;
         private Label label6;
         private Label label7;
+        private ComboBox cbSelecionarClienteRegistrarVenda;
+        private ComboBox cbSelecionarProdutoRegistrarProduto;
     }
 }
