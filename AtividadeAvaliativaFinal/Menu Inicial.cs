@@ -21,5 +21,11 @@ namespace AtividadeAvaliativaFinal
         {
 
         }
+
+        private void btRegistrarVenda_Click(object sender, EventArgs e)
+        {
+            Form Registrar = new Forms.Registrar_Venda();
+            Registrar.ShowDialog();
+        }
     }
 }

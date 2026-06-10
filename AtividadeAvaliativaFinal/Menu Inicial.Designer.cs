@@ -56,6 +56,7 @@
             btRegistrarVenda.TabIndex = 1;
             btRegistrarVenda.Text = "Registrar Venda";
             btRegistrarVenda.UseVisualStyleBackColor = true;
+            btRegistrarVenda.Click += btRegistrarVenda_Click;
             // 
             // btListarProdutos
             // 
