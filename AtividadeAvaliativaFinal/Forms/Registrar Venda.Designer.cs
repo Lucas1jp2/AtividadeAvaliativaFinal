@@ -35,15 +35,8 @@
             textBox6 = new TextBox();
             btCancelarCadastroProdutos = new Button();
             btSalvarVenda = new Button();
-            button1 = new Button();
+            btAddProdutoRegistrarVendas = new Button();
             dataGridView1 = new DataGridView();
-            dtCodigoVenda = new DataGridViewTextBoxColumn();
-            dtCpfCliente = new DataGridViewTextBoxColumn();
-            dtNomeProduto = new DataGridViewTextBoxColumn();
-            dtCategoriaProduto = new DataGridViewTextBoxColumn();
-            dtValorUnitarioProduto = new DataGridViewTextBoxColumn();
-            dtQuantidadeProduto = new DataGridViewTextBoxColumn();
-            dtTotal = new DataGridViewTextBoxColumn();
             label2 = new Label();
             label3 = new Label();
             label4 = new Label();
@@ -52,6 +45,13 @@
             label7 = new Label();
             cbSelecionarClienteRegistrarVenda = new ComboBox();
             cbSelecionarProdutoRegistrarProduto = new ComboBox();
+            dtCodigoVendaRegistrarVenda = new DataGridViewTextBoxColumn();
+            dtCpfClienteRegistrarVenda = new DataGridViewTextBoxColumn();
+            dtNomeProdutoRegistrarVenda = new DataGridViewTextBoxColumn();
+            dtCategoriaProdutoRegistrarVenda = new DataGridViewTextBoxColumn();
+            dtValorUnitarioProdutoRegistrarVenda = new DataGridViewTextBoxColumn();
+            dtQuantidadeProdutoRegistrarVenda = new DataGridViewTextBoxColumn();
+            dtTotalRegistrarVenda = new DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             SuspendLayout();
             // 
@@ -111,61 +111,27 @@
             btSalvarVenda.Text = "SALVAR VENDA";
             btSalvarVenda.UseVisualStyleBackColor = true;
             // 
-            // button1
+            // btAddProdutoRegistrarVendas
             // 
-            button1.Location = new Point(346, 234);
-            button1.Name = "button1";
-            button1.Size = new Size(81, 29);
-            button1.TabIndex = 16;
-            button1.Text = "ADD(+)";
-            button1.UseVisualStyleBackColor = true;
+            btAddProdutoRegistrarVendas.Location = new Point(346, 234);
+            btAddProdutoRegistrarVendas.Name = "btAddProdutoRegistrarVendas";
+            btAddProdutoRegistrarVendas.Size = new Size(81, 29);
+            btAddProdutoRegistrarVendas.TabIndex = 16;
+            btAddProdutoRegistrarVendas.Text = "ADD(+)";
+            btAddProdutoRegistrarVendas.UseVisualStyleBackColor = true;
             // 
             // dataGridView1
             // 
+            dataGridView1.AllowUserToAddRows = false;
             dataGridView1.AllowUserToOrderColumns = true;
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Columns.AddRange(new DataGridViewColumn[] { dtCodigoVenda, dtCpfCliente, dtNomeProduto, dtCategoriaProduto, dtValorUnitarioProduto, dtQuantidadeProduto, dtTotal });
+            dataGridView1.Columns.AddRange(new DataGridViewColumn[] { dtCodigoVendaRegistrarVenda, dtCpfClienteRegistrarVenda, dtNomeProdutoRegistrarVenda, dtCategoriaProdutoRegistrarVenda, dtValorUnitarioProdutoRegistrarVenda, dtQuantidadeProdutoRegistrarVenda, dtTotalRegistrarVenda });
             dataGridView1.Location = new Point(40, 269);
             dataGridView1.Name = "dataGridView1";
             dataGridView1.RowHeadersVisible = false;
-            dataGridView1.Size = new Size(701, 91);
+            dataGridView1.Size = new Size(703, 65);
             dataGridView1.TabIndex = 17;
             dataGridView1.CellContentClick += dataGridView1_CellContentClick;
-            // 
-            // dtCodigoVenda
-            // 
-            dtCodigoVenda.HeaderText = "Codigo Venda";
-            dtCodigoVenda.Name = "dtCodigoVenda";
-            // 
-            // dtCpfCliente
-            // 
-            dtCpfCliente.HeaderText = "Cpf - Cliente";
-            dtCpfCliente.Name = "dtCpfCliente";
-            // 
-            // dtNomeProduto
-            // 
-            dtNomeProduto.HeaderText = "Produto";
-            dtNomeProduto.Name = "dtNomeProduto";
-            // 
-            // dtCategoriaProduto
-            // 
-            dtCategoriaProduto.HeaderText = "Categoria";
-            dtCategoriaProduto.Name = "dtCategoriaProduto";
-            // 
-            // dtValorUnitarioProduto
-            // 
-            dtValorUnitarioProduto.HeaderText = "Valor Unitário";
-            dtValorUnitarioProduto.Name = "dtValorUnitarioProduto";
-            // 
-            // dtQuantidadeProduto
-            // 
-            dtQuantidadeProduto.HeaderText = "Quantidade";
-            dtQuantidadeProduto.Name = "dtQuantidadeProduto";
-            // 
-            // dtTotal
-            // 
-            dtTotal.HeaderText = "Total";
-            dtTotal.Name = "dtTotal";
             // 
             // label2
             // 
@@ -237,6 +203,41 @@
             cbSelecionarProdutoRegistrarProduto.Size = new Size(406, 23);
             cbSelecionarProdutoRegistrarProduto.TabIndex = 25;
             // 
+            // dtCodigoVendaRegistrarVenda
+            // 
+            dtCodigoVendaRegistrarVenda.HeaderText = "Codigo Venda";
+            dtCodigoVendaRegistrarVenda.Name = "dtCodigoVendaRegistrarVenda";
+            // 
+            // dtCpfClienteRegistrarVenda
+            // 
+            dtCpfClienteRegistrarVenda.HeaderText = "Cpf - Cliente";
+            dtCpfClienteRegistrarVenda.Name = "dtCpfClienteRegistrarVenda";
+            // 
+            // dtNomeProdutoRegistrarVenda
+            // 
+            dtNomeProdutoRegistrarVenda.HeaderText = "Produto";
+            dtNomeProdutoRegistrarVenda.Name = "dtNomeProdutoRegistrarVenda";
+            // 
+            // dtCategoriaProdutoRegistrarVenda
+            // 
+            dtCategoriaProdutoRegistrarVenda.HeaderText = "Categoria";
+            dtCategoriaProdutoRegistrarVenda.Name = "dtCategoriaProdutoRegistrarVenda";
+            // 
+            // dtValorUnitarioProdutoRegistrarVenda
+            // 
+            dtValorUnitarioProdutoRegistrarVenda.HeaderText = "Valor Unitário";
+            dtValorUnitarioProdutoRegistrarVenda.Name = "dtValorUnitarioProdutoRegistrarVenda";
+            // 
+            // dtQuantidadeProdutoRegistrarVenda
+            // 
+            dtQuantidadeProdutoRegistrarVenda.HeaderText = "Quantidade";
+            dtQuantidadeProdutoRegistrarVenda.Name = "dtQuantidadeProdutoRegistrarVenda";
+            // 
+            // dtTotalRegistrarVenda
+            // 
+            dtTotalRegistrarVenda.HeaderText = "Total";
+            dtTotalRegistrarVenda.Name = "dtTotalRegistrarVenda";
+            // 
             // Registrar_Venda
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -251,7 +252,7 @@
             Controls.Add(label3);
             Controls.Add(label2);
             Controls.Add(dataGridView1);
-            Controls.Add(button1);
+            Controls.Add(btAddProdutoRegistrarVendas);
             Controls.Add(btCancelarCadastroProdutos);
             Controls.Add(btSalvarVenda);
             Controls.Add(textBox6);
@@ -275,15 +276,8 @@
         private TextBox textBox6;
         private Button btCancelarCadastroProdutos;
         private Button btSalvarVenda;
-        private Button button1;
+        private Button btAddProdutoRegistrarVendas;
         private DataGridView dataGridView1;
-        private DataGridViewTextBoxColumn dtCodigoVenda;
-        private DataGridViewTextBoxColumn dtCpfCliente;
-        private DataGridViewTextBoxColumn dtNomeProduto;
-        private DataGridViewTextBoxColumn dtCategoriaProduto;
-        private DataGridViewTextBoxColumn dtValorUnitarioProduto;
-        private DataGridViewTextBoxColumn dtQuantidadeProduto;
-        private DataGridViewTextBoxColumn dtTotal;
         private Label label2;
         private Label label3;
         private Label label4;
@@ -292,5 +286,12 @@
         private Label label7;
         private ComboBox cbSelecionarClienteRegistrarVenda;
         private ComboBox cbSelecionarProdutoRegistrarProduto;
+        private DataGridViewTextBoxColumn dtCodigoVendaRegistrarVenda;
+        private DataGridViewTextBoxColumn dtCpfClienteRegistrarVenda;
+        private DataGridViewTextBoxColumn dtNomeProdutoRegistrarVenda;
+        private DataGridViewTextBoxColumn dtCategoriaProdutoRegistrarVenda;
+        private DataGridViewTextBoxColumn dtValorUnitarioProdutoRegistrarVenda;
+        private DataGridViewTextBoxColumn dtQuantidadeProdutoRegistrarVenda;
+        private DataGridViewTextBoxColumn dtTotalRegistrarVenda;
     }
 }
