@@ -46,6 +46,7 @@
             btCadastrarProdutos.TabIndex = 0;
             btCadastrarProdutos.Text = "Cadastrar Produto";
             btCadastrarProdutos.UseVisualStyleBackColor = true;
+            btCadastrarProdutos.Click += btCadastrarProdutos_Click;
             // 
             // btRegistrarVenda
             // 
