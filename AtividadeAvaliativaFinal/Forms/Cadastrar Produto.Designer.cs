@@ -37,8 +37,8 @@
             label3 = new Label();
             label4 = new Label();
             label5 = new Label();
-            btCadastrar = new Button();
-            btCancelar = new Button();
+            btCadastrarProdutos = new Button();
+            btCancelarCadastroProdutos = new Button();
             SuspendLayout();
             // 
             // label1
@@ -115,31 +115,31 @@
             label5.TabIndex = 11;
             label5.Text = "Quantidade em Estoque:";
             // 
-            // btCadastrar
+            // btCadastrarProdutos
             // 
-            btCadastrar.Location = new Point(168, 370);
-            btCadastrar.Name = "btCadastrar";
-            btCadastrar.Size = new Size(159, 34);
-            btCadastrar.TabIndex = 12;
-            btCadastrar.Text = "button1";
-            btCadastrar.UseVisualStyleBackColor = true;
+            btCadastrarProdutos.Location = new Point(168, 370);
+            btCadastrarProdutos.Name = "btCadastrarProdutos";
+            btCadastrarProdutos.Size = new Size(159, 34);
+            btCadastrarProdutos.TabIndex = 12;
+            btCadastrarProdutos.Text = "Cadastrar";
+            btCadastrarProdutos.UseVisualStyleBackColor = true;
             // 
-            // btCancelar
+            // btCancelarCadastroProdutos
             // 
-            btCancelar.Location = new Point(372, 370);
-            btCancelar.Name = "btCancelar";
-            btCancelar.Size = new Size(159, 34);
-            btCancelar.TabIndex = 13;
-            btCancelar.Text = "button2";
-            btCancelar.UseVisualStyleBackColor = true;
+            btCancelarCadastroProdutos.Location = new Point(372, 370);
+            btCancelarCadastroProdutos.Name = "btCancelarCadastroProdutos";
+            btCancelarCadastroProdutos.Size = new Size(159, 34);
+            btCancelarCadastroProdutos.TabIndex = 13;
+            btCancelarCadastroProdutos.Text = "Cancelar";
+            btCancelarCadastroProdutos.UseVisualStyleBackColor = true;
             // 
             // Cadastrar_Produto
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
-            Controls.Add(btCancelar);
-            Controls.Add(btCadastrar);
+            Controls.Add(btCancelarCadastroProdutos);
+            Controls.Add(btCadastrarProdutos);
             Controls.Add(label5);
             Controls.Add(label4);
             Controls.Add(label3);
@@ -170,8 +170,8 @@
         private Label label3;
         private Label label4;
         private Label label5;
-        private Button btCadastrar;
-        private Button btCancelar;
+        private Button btCadastrarProdutos;
+        private Button btCancelarCadastroProdutos;
         private FlowLayoutPanel flowLayoutPanel1;
         private Panel panel1;
     }
