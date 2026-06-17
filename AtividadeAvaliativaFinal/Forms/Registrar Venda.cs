@@ -19,5 +19,10 @@ namespace AtividadeAvaliativaFinal.Forms
         {
 
         }
+
+        private void Registrar_Venda_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
