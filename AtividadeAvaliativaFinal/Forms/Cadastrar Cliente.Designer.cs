@@ -28,43 +28,45 @@
         /// </summary>
         private void InitializeComponent()
         {
-            btCancelarCadastroCliente = new Button();
-            btCadastrarCliente = new Button();
+            btnCancel = new Button();
+            btnSubmit = new Button();
             label5 = new Label();
             label4 = new Label();
             label3 = new Label();
             label2 = new Label();
-            txtNomeCliente = new TextBox();
-            txtCpfCliente = new TextBox();
-            txtEmailCliente = new TextBox();
-            txtTelefoneCliente = new TextBox();
+            txtName = new TextBox();
+            txtEmail = new TextBox();
             label1 = new Label();
+            txtPhone = new MaskedTextBox();
+            txtCpf = new MaskedTextBox();
             SuspendLayout();
             // 
-            // btCancelarCadastroCliente
+            // btnCancel
             // 
-            btCancelarCadastroCliente.Location = new Point(388, 389);
-            btCancelarCadastroCliente.Name = "btCancelarCadastroCliente";
-            btCancelarCadastroCliente.Size = new Size(159, 34);
-            btCancelarCadastroCliente.TabIndex = 24;
-            btCancelarCadastroCliente.Text = "Cancelar";
-            btCancelarCadastroCliente.UseVisualStyleBackColor = true;
+            btnCancel.Location = new Point(388, 389);
+            btnCancel.Name = "btnCancel";
+            btnCancel.Size = new Size(159, 34);
+            btnCancel.TabIndex = 24;
+            btnCancel.Text = "Cancelar";
+            btnCancel.UseVisualStyleBackColor = true;
+            btnCancel.Click += btnCancel_Click;
             // 
-            // btCadastrarCliente
+            // btnSubmit
             // 
-            btCadastrarCliente.Location = new Point(184, 389);
-            btCadastrarCliente.Name = "btCadastrarCliente";
-            btCadastrarCliente.Size = new Size(159, 34);
-            btCadastrarCliente.TabIndex = 23;
-            btCadastrarCliente.Text = "Cadastrar";
-            btCadastrarCliente.UseVisualStyleBackColor = true;
+            btnSubmit.Location = new Point(184, 389);
+            btnSubmit.Name = "btnSubmit";
+            btnSubmit.Size = new Size(159, 34);
+            btnSubmit.TabIndex = 23;
+            btnSubmit.Text = "Cadastrar";
+            btnSubmit.UseVisualStyleBackColor = true;
+            btnSubmit.Click += btnSubmit_Click;
             // 
             // label5
             // 
             label5.AutoSize = true;
             label5.Location = new Point(106, 315);
             label5.Name = "label5";
-            label5.Size = new Size(55, 15);
+            label5.Size = new Size(54, 15);
             label5.TabIndex = 22;
             label5.Text = "Telefone:";
             // 
@@ -95,33 +97,19 @@
             label2.TabIndex = 19;
             label2.Text = "Nome:";
             // 
-            // txtNomeCliente
+            // txtName
             // 
-            txtNomeCliente.Location = new Point(106, 149);
-            txtNomeCliente.Name = "txtNomeCliente";
-            txtNomeCliente.Size = new Size(588, 23);
-            txtNomeCliente.TabIndex = 18;
+            txtName.Location = new Point(106, 149);
+            txtName.Name = "txtName";
+            txtName.Size = new Size(588, 23);
+            txtName.TabIndex = 18;
             // 
-            // txtCpfCliente
+            // txtEmail
             // 
-            txtCpfCliente.Location = new Point(106, 204);
-            txtCpfCliente.Name = "txtCpfCliente";
-            txtCpfCliente.Size = new Size(588, 23);
-            txtCpfCliente.TabIndex = 17;
-            // 
-            // txtEmailCliente
-            // 
-            txtEmailCliente.Location = new Point(106, 269);
-            txtEmailCliente.Name = "txtEmailCliente";
-            txtEmailCliente.Size = new Size(588, 23);
-            txtEmailCliente.TabIndex = 16;
-            // 
-            // txtTelefoneCliente
-            // 
-            txtTelefoneCliente.Location = new Point(106, 333);
-            txtTelefoneCliente.Name = "txtTelefoneCliente";
-            txtTelefoneCliente.Size = new Size(588, 23);
-            txtTelefoneCliente.TabIndex = 15;
+            txtEmail.Location = new Point(106, 269);
+            txtEmail.Name = "txtEmail";
+            txtEmail.Size = new Size(588, 23);
+            txtEmail.TabIndex = 16;
             // 
             // label1
             // 
@@ -133,21 +121,37 @@
             label1.Text = "Cadastrar Clientes";
             label1.TextAlign = ContentAlignment.MiddleCenter;
             // 
+            // txtPhone
+            // 
+            txtPhone.Location = new Point(106, 333);
+            txtPhone.Mask = "(00) 0 0000-0000";
+            txtPhone.Name = "txtPhone";
+            txtPhone.Size = new Size(588, 23);
+            txtPhone.TabIndex = 25;
+            // 
+            // txtCpf
+            // 
+            txtCpf.Location = new Point(106, 204);
+            txtCpf.Mask = "000,000,000-00";
+            txtCpf.Name = "txtCpf";
+            txtCpf.Size = new Size(588, 23);
+            txtCpf.TabIndex = 26;
+            // 
             // Cadastrar_Cliente
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
-            Controls.Add(btCancelarCadastroCliente);
-            Controls.Add(btCadastrarCliente);
+            Controls.Add(txtCpf);
+            Controls.Add(txtPhone);
+            Controls.Add(btnCancel);
+            Controls.Add(btnSubmit);
             Controls.Add(label5);
             Controls.Add(label4);
             Controls.Add(label3);
             Controls.Add(label2);
-            Controls.Add(txtNomeCliente);
-            Controls.Add(txtCpfCliente);
-            Controls.Add(txtEmailCliente);
-            Controls.Add(txtTelefoneCliente);
+            Controls.Add(txtName);
+            Controls.Add(txtEmail);
             Controls.Add(label1);
             Name = "Cadastrar_Cliente";
             Text = "Cadastrar_Cliente";
@@ -157,16 +161,16 @@
 
         #endregion
 
-        private Button btCancelarCadastroCliente;
-        private Button btCadastrarCliente;
+        private Button btnCancel;
+        private Button btnSubmit;
         private Label label5;
         private Label label4;
         private Label label3;
         private Label label2;
-        private TextBox txtNomeCliente;
-        private TextBox txtCpfCliente;
-        private TextBox txtEmailCliente;
-        private TextBox txtTelefoneCliente;
+        private TextBox txtName;
+        private TextBox txtEmail;
         private Label label1;
+        private MaskedTextBox txtPhone;
+        private MaskedTextBox txtCpf;
     }
 }

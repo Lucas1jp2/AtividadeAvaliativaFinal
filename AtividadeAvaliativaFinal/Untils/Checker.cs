@@ -6,93 +6,177 @@ namespace AtividadeAvaliativaFinal.Untils
 {
     class Checker
     {
-       // Check nums in text
+        // # Check nums in text
         public static bool NumInText(string text)
         {
             try
             {
-                char[] nums = { '0', '1', '2', '3', '4', '5', '6', '7', '8', '9' };
-                bool contains = false;
-
-                for (int i = 0; i < nums.Length; i++)
+                foreach (char c in text.ToCharArray())
                 {
-                    if (text.Contains(nums[i]))
-                    {
-                        contains = true;
-                        break;
-                    }
-
+                    if (Convert.ToInt16(c) >= 48 && Convert.ToInt16(c) <= 57) return true;
                 }
+                
 
-                return contains;
+                return false;
             }
-            catch (Exception error)
+            catch (Exception ex)
             {
-                ShowMessages.Error(error, "Check numbers in text.");
+                ShowMessages.Error(ex, "Check numbers in text");
                 return false;
             }
             
         }
 
-        // Check CPF
-        public static bool CPF(string CPF)
+        // # Check text in nums
+        public static bool TextInNums(string nums)
         {
             try
             {
-                CPF = CPF.Replace(".", "").Replace(",", "").Replace("-", "");
-                char[] CPFChar = CPF.ToCharArray();
+                foreach (char c in nums.ToCharArray())
+                {
+                    if (Convert.ToInt16(c) < 48 && Convert.ToInt16(c) > 57) return true;
+                }
 
-                if (CPFChar.Length != 11)
+
+                return false;
+            }
+            catch (Exception ex)
+            {
+                ShowMessages.Error(ex, "Check text in numbers");
+                return false;
+            }
+
+        }
+        
+        // # Check text in nums
+        public static bool ValidEmail(string email)
+        {
+            try
+            {
+                if(!email.Contains("@"))
+                {
+                    ShowMessages.InvalidData("Email");
+                    return false;
+                }
+                else
+                {
+                    string domain = email.Split('@')[1];
+
+                    if (domain.Contains(".com") || domain.Contains(".com.br")) return true;
+                    else
+                    {
+                        ShowMessages.InvalidData("Email");
+                        return false;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                ShowMessages.Error(ex, "Check text in numbers");
+                return false;
+            }
+
+        }
+
+        // # Check phone
+        public static bool ValidPhone(string phone)
+        {
+            try
+            {
+                phone = phone.Replace("(", "").Replace(")", "").Replace(" ", "").Replace("-", "");
+                if (TextInNums(phone))
+                {
+                    ShowMessages.InvalidData("Phone Number");
+                    return false;
+                }
+
+                return true;
+            }
+            catch (Exception ex)
+            {
+                ShowMessages.Error(ex, "Check phone number");
+                return false;
+            }
+
+        }
+
+        // # Check CPF
+        public static bool ValidCPF(string CPF)
+        {
+            try
+            {
+                // Check nums
+                if ((CPF == "000.000.000-00" || CPF == "000.000.000-01"))
                 {
                     ShowMessages.InvalidData("CPF");
                     return false;
                 }
                 else
                 {
-                    char checkNum1 = CPFChar[9], checkNum2 = CPFChar[10];
-                    int nums = 10, counter = 0, calcNum1, calcNum2;
-                    Array.Resize(ref CPFChar, CPFChar.Length - 2);
-
-                    // Check num 1
-                    foreach (char num in CPFChar) 
+                    if (CPF.Length != 14)
                     {
-                        counter += (Convert.ToInt32(num) * nums);
-                        nums--;
+                        ShowMessages.InvalidData("CPF");
+                        return false;
                     }
-
-                    calcNum1 = counter % 11;
-
-                    if (calcNum1 < 2) calcNum1 = 0; 
-                    else calcNum1 = 11 - calcNum1;
-
-                    if (calcNum1 != Convert.ToInt16(checkNum1)) return false;
                     else
                     {
-                        // Check num 2
-                        nums = 11; 
-                        counter = 0;
-                        CPFChar[CPFChar.Length - 1] = checkNum1;
+                        CPF = CPF.Replace(".", "").Replace(",", "").Replace("-", "");
 
-                        foreach (char num in CPFChar)
+                        if (TextInNums(CPF))
                         {
-                            counter += (Convert.ToInt32(num) * nums);
-                            nums--;
+                            ShowMessages.InvalidData("CPF");
+                            return false;
                         }
+                        else
+                        {
+                            char[] CPFChar = CPF.ToCharArray();
 
-                        calcNum2 = counter % 11;
+                            // -- Check vnum 1 --
 
-                        if (calcNum2 < 2) calcNum1 = 0;
-                        else calcNum2 = 11 - calcNum2;
+                            char checkNum1 = CPFChar[9], checkNum2 = CPFChar[10];
+                            int nums = 10, counter = 0, calcNum1, calcNum2;
+                            Array.Resize(ref CPFChar, CPFChar.Length - 2);
 
-                        if (calcNum2 != Convert.ToInt16(checkNum2)) return false;
-                        else return true;
+                            foreach (char num in CPFChar)
+                            {
+                                counter += (Convert.ToInt32(num) * nums);
+                                nums--;
+                            }
+
+                            calcNum1 = counter % 11;
+
+                            if (calcNum1 < 2) calcNum1 = 0;
+                            else calcNum1 = 11 - calcNum1;
+
+                            if (calcNum1 != Convert.ToInt16(checkNum1)) return false;
+                            else
+                            {
+                                // -- Check vnum 2 --
+                                nums = 11;
+                                counter = 0;
+                                CPFChar[CPFChar.Length - 1] = checkNum1;
+
+                                foreach (char num in CPFChar)
+                                {
+                                    counter += (Convert.ToInt32(num) * nums);
+                                    nums--;
+                                }
+
+                                calcNum2 = counter % 11;
+
+                                if (calcNum2 < 2) calcNum1 = 0;
+                                else calcNum2 = 11 - calcNum2;
+
+                                if (calcNum2 != Convert.ToInt16(checkNum2)) return false;
+                                else return true;
+                            }
+                        }
                     }
-
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Erro ao verificar CPF.");
+                ShowMessages.Error(ex, "Check CPF");
                 return false;
             }
         }

@@ -16,6 +16,17 @@ namespace AtividadeAvaliativaFinal.Untils
 
             else MessageBox.Show($"{template} \n\n{error.Message}");
         }
+
+        public static void ErrorAlt(string descripton = "")
+        {
+            MessageBox.Show($"[ ERR0R ] {descripton}");
+        }
+
+        public static void Success(string descripton = "")
+        {
+            MessageBox.Show($"[ SUCCEFULL ] {descripton}");
+        }
+
         public static void InvalidData(string field)
         {
             string template = "[ WRONG FIELD ] ";
