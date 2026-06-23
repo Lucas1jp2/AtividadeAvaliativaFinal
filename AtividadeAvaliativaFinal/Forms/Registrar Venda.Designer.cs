@@ -29,274 +29,260 @@
         private void InitializeComponent()
         {
             label1 = new Label();
-            textBox3 = new TextBox();
-            textBox4 = new TextBox();
-            textBox5 = new TextBox();
-            textBox6 = new TextBox();
-            btCancelarCadastroProdutos = new Button();
-            btSalvarVenda = new Button();
-            btAddProdutoRegistrarVendas = new Button();
-            dataGridView1 = new DataGridView();
-            dtCodigoVendaRegistrarVenda = new DataGridViewTextBoxColumn();
-            dtCpfClienteRegistrarVenda = new DataGridViewTextBoxColumn();
-            dtNomeProdutoRegistrarVenda = new DataGridViewTextBoxColumn();
-            dtCategoriaProdutoRegistrarVenda = new DataGridViewTextBoxColumn();
-            dtValorUnitarioProdutoRegistrarVenda = new DataGridViewTextBoxColumn();
-            dtQuantidadeProdutoRegistrarVenda = new DataGridViewTextBoxColumn();
-            dtTotalRegistrarVenda = new DataGridViewTextBoxColumn();
+            txtName = new TextBox();
+            txtCategory = new TextBox();
+            txtValue = new TextBox();
+            txtBuyAmt = new TextBox();
+            btnCancel = new Button();
+            btnSubmit = new Button();
+            btnAddInList = new Button();
+            gridSellItems = new DataGridView();
+            gridId = new DataGridViewTextBoxColumn();
+            gridCpf = new DataGridViewTextBoxColumn();
+            gridProd = new DataGridViewTextBoxColumn();
+            gridCategory = new DataGridViewTextBoxColumn();
+            gridValue = new DataGridViewTextBoxColumn();
+            gridAmount = new DataGridViewTextBoxColumn();
+            gridTotal = new DataGridViewTextBoxColumn();
             label2 = new Label();
             label3 = new Label();
             label4 = new Label();
             label5 = new Label();
             label6 = new Label();
             label7 = new Label();
-            cbSelecionarClienteRegistrarVenda = new ComboBox();
-            cbSelecionarProdutoRegistrarProduto = new ComboBox();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
+            cbClient = new ComboBox();
+            cbProd = new ComboBox();
+            ((System.ComponentModel.ISupportInitialize)gridSellItems).BeginInit();
             SuspendLayout();
             // 
             // label1
             // 
             label1.Font = new Font("Calibri", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label1.Location = new Point(422, 9);
-            label1.Margin = new Padding(4, 0, 4, 0);
+            label1.Location = new Point(295, 5);
             label1.Name = "label1";
-            label1.Size = new Size(314, 53);
+            label1.Size = new Size(220, 32);
             label1.TabIndex = 0;
             label1.Text = "Registrar vendas";
             label1.TextAlign = ContentAlignment.MiddleCenter;
             // 
-            // textBox3
+            // txtName
             // 
-            textBox3.Location = new Point(107, 204);
-            textBox3.Margin = new Padding(4, 5, 4, 5);
-            textBox3.Name = "textBox3";
-            textBox3.Size = new Size(426, 31);
-            textBox3.TabIndex = 3;
+            txtName.Enabled = false;
+            txtName.Location = new Point(39, 125);
+            txtName.Name = "txtName";
+            txtName.Size = new Size(322, 23);
+            txtName.TabIndex = 3;
             // 
-            // textBox4
+            // txtCategory
             // 
-            textBox4.Location = new Point(603, 204);
-            textBox4.Margin = new Padding(4, 5, 4, 5);
-            textBox4.Name = "textBox4";
-            textBox4.Size = new Size(426, 31);
-            textBox4.TabIndex = 4;
+            txtCategory.Enabled = false;
+            txtCategory.Location = new Point(422, 125);
+            txtCategory.Name = "txtCategory";
+            txtCategory.Size = new Size(320, 23);
+            txtCategory.TabIndex = 4;
             // 
-            // textBox5
+            // txtValue
             // 
-            textBox5.Location = new Point(107, 265);
-            textBox5.Margin = new Padding(4, 5, 4, 5);
-            textBox5.Name = "textBox5";
-            textBox5.Size = new Size(426, 31);
-            textBox5.TabIndex = 5;
+            txtValue.Enabled = false;
+            txtValue.Location = new Point(39, 169);
+            txtValue.Name = "txtValue";
+            txtValue.Size = new Size(322, 23);
+            txtValue.TabIndex = 5;
             // 
-            // textBox6
+            // txtBuyAmt
             // 
-            textBox6.Location = new Point(603, 265);
-            textBox6.Margin = new Padding(4, 5, 4, 5);
-            textBox6.Name = "textBox6";
-            textBox6.Size = new Size(426, 31);
-            textBox6.TabIndex = 6;
+            txtBuyAmt.Location = new Point(422, 169);
+            txtBuyAmt.Name = "txtBuyAmt";
+            txtBuyAmt.Size = new Size(320, 23);
+            txtBuyAmt.TabIndex = 6;
             // 
-            // btCancelarCadastroProdutos
+            // btnCancel
             // 
-            btCancelarCadastroProdutos.Location = new Point(590, 679);
-            btCancelarCadastroProdutos.Margin = new Padding(4, 5, 4, 5);
-            btCancelarCadastroProdutos.Name = "btCancelarCadastroProdutos";
-            btCancelarCadastroProdutos.Size = new Size(227, 57);
-            btCancelarCadastroProdutos.TabIndex = 15;
-            btCancelarCadastroProdutos.Text = "CANCELAR VENDA";
-            btCancelarCadastroProdutos.UseVisualStyleBackColor = true;
+            btnCancel.Location = new Point(422, 455);
+            btnCancel.Name = "btnCancel";
+            btnCancel.Size = new Size(159, 34);
+            btnCancel.TabIndex = 15;
+            btnCancel.Text = "CANCELAR VENDA";
+            btnCancel.UseVisualStyleBackColor = true;
+            btnCancel.Click += btnCancel_Click;
             // 
-            // btSalvarVenda
+            // btnSubmit
             // 
-            btSalvarVenda.Location = new Point(299, 679);
-            btSalvarVenda.Margin = new Padding(4, 5, 4, 5);
-            btSalvarVenda.Name = "btSalvarVenda";
-            btSalvarVenda.Size = new Size(227, 57);
-            btSalvarVenda.TabIndex = 14;
-            btSalvarVenda.Text = "SALVAR VENDA";
-            btSalvarVenda.UseVisualStyleBackColor = true;
+            btnSubmit.Location = new Point(218, 455);
+            btnSubmit.Name = "btnSubmit";
+            btnSubmit.Size = new Size(159, 34);
+            btnSubmit.TabIndex = 14;
+            btnSubmit.Text = "SALVAR VENDA";
+            btnSubmit.UseVisualStyleBackColor = true;
             // 
-            // btAddProdutoRegistrarVendas
+            // btnAddInList
             // 
-            btAddProdutoRegistrarVendas.Location = new Point(510, 322);
-            btAddProdutoRegistrarVendas.Margin = new Padding(4, 5, 4, 5);
-            btAddProdutoRegistrarVendas.Name = "btAddProdutoRegistrarVendas";
-            btAddProdutoRegistrarVendas.Size = new Size(116, 48);
-            btAddProdutoRegistrarVendas.TabIndex = 16;
-            btAddProdutoRegistrarVendas.Text = "ADD(+)";
-            btAddProdutoRegistrarVendas.UseVisualStyleBackColor = true;
+            btnAddInList.Location = new Point(316, 204);
+            btnAddInList.Name = "btnAddInList";
+            btnAddInList.Size = new Size(167, 29);
+            btnAddInList.TabIndex = 16;
+            btnAddInList.Text = "ADD(+)";
+            btnAddInList.UseVisualStyleBackColor = true;
             // 
-            // dataGridView1
+            // gridSellItems
             // 
-            dataGridView1.AllowUserToAddRows = false;
-            dataGridView1.AllowUserToOrderColumns = true;
-            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Columns.AddRange(new DataGridViewColumn[] { dtCodigoVendaRegistrarVenda, dtCpfClienteRegistrarVenda, dtNomeProdutoRegistrarVenda, dtCategoriaProdutoRegistrarVenda, dtValorUnitarioProdutoRegistrarVenda, dtQuantidadeProdutoRegistrarVenda, dtTotalRegistrarVenda });
-            dataGridView1.Location = new Point(61, 380);
-            dataGridView1.Margin = new Padding(4, 5, 4, 5);
-            dataGridView1.Name = "dataGridView1";
-            dataGridView1.RowHeadersVisible = false;
-            dataGridView1.RowHeadersWidth = 62;
-            dataGridView1.Size = new Size(1004, 289);
-            dataGridView1.TabIndex = 17;
-            dataGridView1.CellContentClick += dataGridView1_CellContentClick;
+            gridSellItems.AllowUserToAddRows = false;
+            gridSellItems.AllowUserToOrderColumns = true;
+            gridSellItems.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            gridSellItems.Columns.AddRange(new DataGridViewColumn[] { gridId, gridCpf, gridProd, gridCategory, gridValue, gridAmount, gridTotal });
+            gridSellItems.Location = new Point(39, 245);
+            gridSellItems.Name = "gridSellItems";
+            gridSellItems.RowHeadersVisible = false;
+            gridSellItems.RowHeadersWidth = 62;
+            gridSellItems.Size = new Size(703, 192);
+            gridSellItems.TabIndex = 17;
+            gridSellItems.CellContentClick += dataGridView1_CellContentClick;
             // 
-            // dtCodigoVendaRegistrarVenda
+            // gridId
             // 
-            dtCodigoVendaRegistrarVenda.HeaderText = "Codigo Venda";
-            dtCodigoVendaRegistrarVenda.MinimumWidth = 8;
-            dtCodigoVendaRegistrarVenda.Name = "dtCodigoVendaRegistrarVenda";
-            dtCodigoVendaRegistrarVenda.Width = 150;
+            gridId.HeaderText = "Codigo Venda";
+            gridId.MinimumWidth = 8;
+            gridId.Name = "gridId";
+            gridId.Width = 150;
             // 
-            // dtCpfClienteRegistrarVenda
+            // gridCpf
             // 
-            dtCpfClienteRegistrarVenda.HeaderText = "Cpf - Cliente";
-            dtCpfClienteRegistrarVenda.MinimumWidth = 8;
-            dtCpfClienteRegistrarVenda.Name = "dtCpfClienteRegistrarVenda";
-            dtCpfClienteRegistrarVenda.Width = 150;
+            gridCpf.HeaderText = "Cpf - Cliente";
+            gridCpf.MinimumWidth = 8;
+            gridCpf.Name = "gridCpf";
+            gridCpf.Width = 150;
             // 
-            // dtNomeProdutoRegistrarVenda
+            // gridProd
             // 
-            dtNomeProdutoRegistrarVenda.HeaderText = "Produto";
-            dtNomeProdutoRegistrarVenda.MinimumWidth = 8;
-            dtNomeProdutoRegistrarVenda.Name = "dtNomeProdutoRegistrarVenda";
-            dtNomeProdutoRegistrarVenda.Width = 150;
+            gridProd.HeaderText = "Produto";
+            gridProd.MinimumWidth = 8;
+            gridProd.Name = "gridProd";
+            gridProd.Width = 150;
             // 
-            // dtCategoriaProdutoRegistrarVenda
+            // gridCategory
             // 
-            dtCategoriaProdutoRegistrarVenda.HeaderText = "Categoria";
-            dtCategoriaProdutoRegistrarVenda.MinimumWidth = 8;
-            dtCategoriaProdutoRegistrarVenda.Name = "dtCategoriaProdutoRegistrarVenda";
-            dtCategoriaProdutoRegistrarVenda.Width = 150;
+            gridCategory.HeaderText = "Categoria";
+            gridCategory.MinimumWidth = 8;
+            gridCategory.Name = "gridCategory";
+            gridCategory.Width = 150;
             // 
-            // dtValorUnitarioProdutoRegistrarVenda
+            // gridValue
             // 
-            dtValorUnitarioProdutoRegistrarVenda.HeaderText = "Valor Unitário";
-            dtValorUnitarioProdutoRegistrarVenda.MinimumWidth = 8;
-            dtValorUnitarioProdutoRegistrarVenda.Name = "dtValorUnitarioProdutoRegistrarVenda";
-            dtValorUnitarioProdutoRegistrarVenda.Width = 150;
+            gridValue.HeaderText = "Valor Unitário";
+            gridValue.MinimumWidth = 8;
+            gridValue.Name = "gridValue";
+            gridValue.Width = 150;
             // 
-            // dtQuantidadeProdutoRegistrarVenda
+            // gridAmount
             // 
-            dtQuantidadeProdutoRegistrarVenda.HeaderText = "Quantidade";
-            dtQuantidadeProdutoRegistrarVenda.MinimumWidth = 8;
-            dtQuantidadeProdutoRegistrarVenda.Name = "dtQuantidadeProdutoRegistrarVenda";
-            dtQuantidadeProdutoRegistrarVenda.Width = 150;
+            gridAmount.HeaderText = "Quantidade";
+            gridAmount.MinimumWidth = 8;
+            gridAmount.Name = "gridAmount";
+            gridAmount.Width = 150;
             // 
-            // dtTotalRegistrarVenda
+            // gridTotal
             // 
-            dtTotalRegistrarVenda.HeaderText = "Total";
-            dtTotalRegistrarVenda.MinimumWidth = 8;
-            dtTotalRegistrarVenda.Name = "dtTotalRegistrarVenda";
-            dtTotalRegistrarVenda.Width = 150;
+            gridTotal.HeaderText = "Total";
+            gridTotal.MinimumWidth = 8;
+            gridTotal.Name = "gridTotal";
+            gridTotal.Width = 150;
             // 
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(156, 37);
-            label2.Margin = new Padding(4, 0, 4, 0);
+            label2.Location = new Point(42, 22);
             label2.Name = "label2";
-            label2.Size = new Size(154, 25);
+            label2.Size = new Size(104, 15);
             label2.TabIndex = 18;
             label2.Text = "Selecionar Cliente:";
             // 
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(156, 106);
-            label3.Margin = new Padding(4, 0, 4, 0);
+            label3.Location = new Point(42, 64);
             label3.Name = "label3";
-            label3.Size = new Size(166, 25);
+            label3.Size = new Size(110, 15);
             label3.TabIndex = 19;
             label3.Text = "Selecionar Produto:";
             // 
             // label4
             // 
             label4.AutoSize = true;
-            label4.Location = new Point(107, 174);
-            label4.Margin = new Padding(4, 0, 4, 0);
+            label4.Location = new Point(39, 107);
             label4.Name = "label4";
-            label4.Size = new Size(162, 25);
+            label4.Size = new Size(106, 15);
             label4.TabIndex = 20;
             label4.Text = "Nome do Produto:";
             // 
             // label5
             // 
             label5.AutoSize = true;
-            label5.Location = new Point(603, 174);
-            label5.Margin = new Padding(4, 0, 4, 0);
+            label5.Location = new Point(422, 107);
             label5.Name = "label5";
-            label5.Size = new Size(92, 25);
+            label5.Size = new Size(61, 15);
             label5.TabIndex = 21;
             label5.Text = "Categoria:";
             // 
             // label6
             // 
             label6.AutoSize = true;
-            label6.Location = new Point(107, 240);
-            label6.Margin = new Padding(4, 0, 4, 0);
+            label6.Location = new Point(39, 154);
             label6.Name = "label6";
-            label6.Size = new Size(121, 25);
+            label6.Size = new Size(80, 15);
             label6.TabIndex = 22;
             label6.Text = "Valor unitário:";
             // 
             // label7
             // 
             label7.AutoSize = true;
-            label7.Location = new Point(599, 240);
-            label7.Margin = new Padding(4, 0, 4, 0);
+            label7.Location = new Point(425, 154);
             label7.Name = "label7";
-            label7.Size = new Size(237, 25);
+            label7.Size = new Size(156, 15);
             label7.TabIndex = 23;
             label7.Text = "Quantidade a ser comprada:";
             // 
-            // cbSelecionarClienteRegistrarVenda
+            // cbClient
             // 
-            cbSelecionarClienteRegistrarVenda.FormattingEnabled = true;
-            cbSelecionarClienteRegistrarVenda.Location = new Point(156, 67);
-            cbSelecionarClienteRegistrarVenda.Margin = new Padding(4, 5, 4, 5);
-            cbSelecionarClienteRegistrarVenda.Name = "cbSelecionarClienteRegistrarVenda";
-            cbSelecionarClienteRegistrarVenda.Size = new Size(794, 33);
-            cbSelecionarClienteRegistrarVenda.TabIndex = 24;
+            cbClient.FormattingEnabled = true;
+            cbClient.Location = new Point(39, 40);
+            cbClient.Name = "cbClient";
+            cbClient.Size = new Size(703, 23);
+            cbClient.TabIndex = 24;
             // 
-            // cbSelecionarProdutoRegistrarProduto
+            // cbProd
             // 
-            cbSelecionarProdutoRegistrarProduto.FormattingEnabled = true;
-            cbSelecionarProdutoRegistrarProduto.Location = new Point(156, 136);
-            cbSelecionarProdutoRegistrarProduto.Margin = new Padding(4, 5, 4, 5);
-            cbSelecionarProdutoRegistrarProduto.Name = "cbSelecionarProdutoRegistrarProduto";
-            cbSelecionarProdutoRegistrarProduto.Size = new Size(794, 33);
-            cbSelecionarProdutoRegistrarProduto.TabIndex = 25;
+            cbProd.FormattingEnabled = true;
+            cbProd.Location = new Point(39, 82);
+            cbProd.Name = "cbProd";
+            cbProd.Size = new Size(703, 23);
+            cbProd.TabIndex = 25;
             // 
             // Registrar_Venda
             // 
-            AutoScaleDimensions = new SizeF(10F, 25F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1143, 750);
-            Controls.Add(cbSelecionarProdutoRegistrarProduto);
-            Controls.Add(cbSelecionarClienteRegistrarVenda);
+            ClientSize = new Size(800, 506);
+            Controls.Add(cbProd);
+            Controls.Add(cbClient);
             Controls.Add(label7);
             Controls.Add(label6);
             Controls.Add(label5);
             Controls.Add(label4);
             Controls.Add(label3);
             Controls.Add(label2);
-            Controls.Add(dataGridView1);
-            Controls.Add(btAddProdutoRegistrarVendas);
-            Controls.Add(btCancelarCadastroProdutos);
-            Controls.Add(btSalvarVenda);
-            Controls.Add(textBox6);
-            Controls.Add(textBox5);
-            Controls.Add(textBox4);
-            Controls.Add(textBox3);
+            Controls.Add(gridSellItems);
+            Controls.Add(btnAddInList);
+            Controls.Add(btnCancel);
+            Controls.Add(btnSubmit);
+            Controls.Add(txtBuyAmt);
+            Controls.Add(txtValue);
+            Controls.Add(txtCategory);
+            Controls.Add(txtName);
             Controls.Add(label1);
-            Margin = new Padding(4, 5, 4, 5);
             Name = "Registrar_Venda";
             Text = "Registrar_Venda";
             Load += Registrar_Venda_Load;
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)gridSellItems).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -304,28 +290,28 @@
         #endregion
 
         private Label label1;
-        private TextBox textBox3;
-        private TextBox textBox4;
-        private TextBox textBox5;
-        private TextBox textBox6;
-        private Button btCancelarCadastroProdutos;
-        private Button btSalvarVenda;
-        private Button btAddProdutoRegistrarVendas;
-        private DataGridView dataGridView1;
+        private TextBox txtName;
+        private TextBox txtCategory;
+        private TextBox txtValue;
+        private TextBox txtBuyAmt;
+        private Button btnCancel;
+        private Button btnSubmit;
+        private Button btnAddInList;
+        private DataGridView gridSellItems;
         private Label label2;
         private Label label3;
         private Label label4;
         private Label label5;
         private Label label6;
         private Label label7;
-        private ComboBox cbSelecionarClienteRegistrarVenda;
-        private ComboBox cbSelecionarProdutoRegistrarProduto;
-        private DataGridViewTextBoxColumn dtCodigoVendaRegistrarVenda;
-        private DataGridViewTextBoxColumn dtCpfClienteRegistrarVenda;
-        private DataGridViewTextBoxColumn dtNomeProdutoRegistrarVenda;
-        private DataGridViewTextBoxColumn dtCategoriaProdutoRegistrarVenda;
-        private DataGridViewTextBoxColumn dtValorUnitarioProdutoRegistrarVenda;
-        private DataGridViewTextBoxColumn dtQuantidadeProdutoRegistrarVenda;
-        private DataGridViewTextBoxColumn dtTotalRegistrarVenda;
+        private ComboBox cbClient;
+        private ComboBox cbProd;
+        private DataGridViewTextBoxColumn gridId;
+        private DataGridViewTextBoxColumn gridCpf;
+        private DataGridViewTextBoxColumn gridProd;
+        private DataGridViewTextBoxColumn gridCategory;
+        private DataGridViewTextBoxColumn gridValue;
+        private DataGridViewTextBoxColumn gridAmount;
+        private DataGridViewTextBoxColumn gridTotal;
     }
 }

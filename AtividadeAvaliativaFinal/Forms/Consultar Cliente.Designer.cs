@@ -32,13 +32,13 @@
             label4 = new Label();
             label3 = new Label();
             label2 = new Label();
-            txtNomeCliente = new TextBox();
-            txtCpfCliente = new TextBox();
-            txtEmailCliente = new TextBox();
-            txtTelefoneCliente = new TextBox();
+            txtName = new TextBox();
+            txtCpf = new TextBox();
+            txtEmail = new TextBox();
+            txtPhone = new TextBox();
             label1 = new Label();
             label6 = new Label();
-            cbSelecionarClienteConsultarCliente = new ComboBox();
+            cbClients = new ComboBox();
             SuspendLayout();
             // 
             // label5
@@ -46,7 +46,7 @@
             label5.AutoSize = true;
             label5.Location = new Point(106, 315);
             label5.Name = "label5";
-            label5.Size = new Size(55, 15);
+            label5.Size = new Size(54, 15);
             label5.TabIndex = 33;
             label5.Text = "Telefone:";
             // 
@@ -77,33 +77,37 @@
             label2.TabIndex = 30;
             label2.Text = "Nome:";
             // 
-            // txtNomeCliente
+            // txtName
             // 
-            txtNomeCliente.Location = new Point(106, 149);
-            txtNomeCliente.Name = "txtNomeCliente";
-            txtNomeCliente.Size = new Size(588, 23);
-            txtNomeCliente.TabIndex = 29;
+            txtName.Enabled = false;
+            txtName.Location = new Point(106, 149);
+            txtName.Name = "txtName";
+            txtName.Size = new Size(588, 23);
+            txtName.TabIndex = 29;
             // 
-            // txtCpfCliente
+            // txtCpf
             // 
-            txtCpfCliente.Location = new Point(106, 204);
-            txtCpfCliente.Name = "txtCpfCliente";
-            txtCpfCliente.Size = new Size(588, 23);
-            txtCpfCliente.TabIndex = 28;
+            txtCpf.Enabled = false;
+            txtCpf.Location = new Point(106, 204);
+            txtCpf.Name = "txtCpf";
+            txtCpf.Size = new Size(588, 23);
+            txtCpf.TabIndex = 28;
             // 
-            // txtEmailCliente
+            // txtEmail
             // 
-            txtEmailCliente.Location = new Point(106, 269);
-            txtEmailCliente.Name = "txtEmailCliente";
-            txtEmailCliente.Size = new Size(588, 23);
-            txtEmailCliente.TabIndex = 27;
+            txtEmail.Enabled = false;
+            txtEmail.Location = new Point(106, 269);
+            txtEmail.Name = "txtEmail";
+            txtEmail.Size = new Size(588, 23);
+            txtEmail.TabIndex = 27;
             // 
-            // txtTelefoneCliente
+            // txtPhone
             // 
-            txtTelefoneCliente.Location = new Point(106, 333);
-            txtTelefoneCliente.Name = "txtTelefoneCliente";
-            txtTelefoneCliente.Size = new Size(588, 23);
-            txtTelefoneCliente.TabIndex = 26;
+            txtPhone.Enabled = false;
+            txtPhone.Location = new Point(106, 333);
+            txtPhone.Name = "txtPhone";
+            txtPhone.Size = new Size(588, 23);
+            txtPhone.TabIndex = 26;
             // 
             // label1
             // 
@@ -124,30 +128,30 @@
             label6.TabIndex = 37;
             label6.Text = "Selecionar Cliente:";
             // 
-            // cbSelecionarClienteConsultarCliente
+            // cbClients
             // 
-            cbSelecionarClienteConsultarCliente.FormattingEnabled = true;
-            cbSelecionarClienteConsultarCliente.Location = new Point(157, 79);
-            cbSelecionarClienteConsultarCliente.Name = "cbSelecionarClienteConsultarCliente";
-            cbSelecionarClienteConsultarCliente.Size = new Size(479, 23);
-            cbSelecionarClienteConsultarCliente.TabIndex = 38;
-            cbSelecionarClienteConsultarCliente.SelectedIndexChanged += comboBox1_SelectedIndexChanged;
+            cbClients.FormattingEnabled = true;
+            cbClients.Location = new Point(157, 79);
+            cbClients.Name = "cbClients";
+            cbClients.Size = new Size(479, 23);
+            cbClients.TabIndex = 38;
+            cbClients.SelectedIndexChanged += cbClients_SelectedIndexChanged;
             // 
             // Consultar_Cliente
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
-            Controls.Add(cbSelecionarClienteConsultarCliente);
+            Controls.Add(cbClients);
             Controls.Add(label6);
             Controls.Add(label5);
             Controls.Add(label4);
             Controls.Add(label3);
             Controls.Add(label2);
-            Controls.Add(txtNomeCliente);
-            Controls.Add(txtCpfCliente);
-            Controls.Add(txtEmailCliente);
-            Controls.Add(txtTelefoneCliente);
+            Controls.Add(txtName);
+            Controls.Add(txtCpf);
+            Controls.Add(txtEmail);
+            Controls.Add(txtPhone);
             Controls.Add(label1);
             Name = "Consultar_Cliente";
             Text = "Consultar_Cliente";
@@ -160,12 +164,12 @@
         private Label label4;
         private Label label3;
         private Label label2;
-        private TextBox txtNomeCliente;
-        private TextBox txtCpfCliente;
-        private TextBox txtEmailCliente;
-        private TextBox txtTelefoneCliente;
+        private TextBox txtName;
+        private TextBox txtCpf;
+        private TextBox txtEmail;
+        private TextBox txtPhone;
         private Label label1;
         private Label label6;
-        private ComboBox cbSelecionarClienteConsultarCliente;
+        private ComboBox cbClients;
     }
 }

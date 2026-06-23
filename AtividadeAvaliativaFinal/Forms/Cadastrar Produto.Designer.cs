@@ -29,16 +29,18 @@
         private void InitializeComponent()
         {
             label1 = new Label();
-            txtQtdEstoqueProduto = new TextBox();
-            txtValorUnitProtudo = new TextBox();
-            txtNomeProduto = new TextBox();
-            txtCategoriaProduto = new TextBox();
+            txtName = new TextBox();
+            txtCategory = new TextBox();
             label2 = new Label();
             label3 = new Label();
             label4 = new Label();
             label5 = new Label();
-            btCadastrarProdutos = new Button();
-            btCancelarCadastroProdutos = new Button();
+            btnSubmit = new Button();
+            btnCancel = new Button();
+            txtValue = new NumericUpDown();
+            txtAmount = new NumericUpDown();
+            ((System.ComponentModel.ISupportInitialize)txtValue).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)txtAmount).BeginInit();
             SuspendLayout();
             // 
             // label1
@@ -51,33 +53,19 @@
             label1.Text = "Cadastrar Produtos";
             label1.TextAlign = ContentAlignment.MiddleCenter;
             // 
-            // txtQtdEstoqueProduto
+            // txtName
             // 
-            txtQtdEstoqueProduto.Location = new Point(90, 314);
-            txtQtdEstoqueProduto.Name = "txtQtdEstoqueProduto";
-            txtQtdEstoqueProduto.Size = new Size(588, 23);
-            txtQtdEstoqueProduto.TabIndex = 4;
+            txtName.Location = new Point(90, 130);
+            txtName.Name = "txtName";
+            txtName.Size = new Size(588, 23);
+            txtName.TabIndex = 7;
             // 
-            // txtValorUnitProtudo
+            // txtCategory
             // 
-            txtValorUnitProtudo.Location = new Point(90, 250);
-            txtValorUnitProtudo.Name = "txtValorUnitProtudo";
-            txtValorUnitProtudo.Size = new Size(588, 23);
-            txtValorUnitProtudo.TabIndex = 5;
-            // 
-            // txtNomeProduto
-            // 
-            txtNomeProduto.Location = new Point(90, 130);
-            txtNomeProduto.Name = "txtNomeProduto";
-            txtNomeProduto.Size = new Size(588, 23);
-            txtNomeProduto.TabIndex = 7;
-            // 
-            // txtCategoriaProduto
-            // 
-            txtCategoriaProduto.Location = new Point(90, 185);
-            txtCategoriaProduto.Name = "txtCategoriaProduto";
-            txtCategoriaProduto.Size = new Size(588, 23);
-            txtCategoriaProduto.TabIndex = 6;
+            txtCategory.Location = new Point(90, 185);
+            txtCategory.Name = "txtCategory";
+            txtCategory.Size = new Size(588, 23);
+            txtCategory.TabIndex = 6;
             // 
             // label2
             // 
@@ -102,9 +90,9 @@
             label4.AutoSize = true;
             label4.Location = new Point(90, 232);
             label4.Name = "label4";
-            label4.Size = new Size(80, 15);
+            label4.Size = new Size(104, 15);
             label4.TabIndex = 10;
-            label4.Text = "Valor unitário:";
+            label4.Text = "Valor unitário (R$):";
             // 
             // label5
             // 
@@ -115,43 +103,64 @@
             label5.TabIndex = 11;
             label5.Text = "Quantidade em Estoque:";
             // 
-            // btCadastrarProdutos
+            // btnSubmit
             // 
-            btCadastrarProdutos.Location = new Point(168, 370);
-            btCadastrarProdutos.Name = "btCadastrarProdutos";
-            btCadastrarProdutos.Size = new Size(159, 34);
-            btCadastrarProdutos.TabIndex = 12;
-            btCadastrarProdutos.Text = "Cadastrar";
-            btCadastrarProdutos.UseVisualStyleBackColor = true;
+            btnSubmit.Location = new Point(168, 370);
+            btnSubmit.Name = "btnSubmit";
+            btnSubmit.Size = new Size(159, 34);
+            btnSubmit.TabIndex = 12;
+            btnSubmit.Text = "Cadastrar";
+            btnSubmit.UseVisualStyleBackColor = true;
+            btnSubmit.Click += btnSubmit_Click;
             // 
-            // btCancelarCadastroProdutos
+            // btnCancel
             // 
-            btCancelarCadastroProdutos.Location = new Point(372, 370);
-            btCancelarCadastroProdutos.Name = "btCancelarCadastroProdutos";
-            btCancelarCadastroProdutos.Size = new Size(159, 34);
-            btCancelarCadastroProdutos.TabIndex = 13;
-            btCancelarCadastroProdutos.Text = "Cancelar";
-            btCancelarCadastroProdutos.UseVisualStyleBackColor = true;
+            btnCancel.Location = new Point(372, 370);
+            btnCancel.Name = "btnCancel";
+            btnCancel.Size = new Size(159, 34);
+            btnCancel.TabIndex = 13;
+            btnCancel.Text = "Cancelar";
+            btnCancel.UseVisualStyleBackColor = true;
+            btnCancel.Click += btnCancel_Click;
+            // 
+            // txtValue
+            // 
+            txtValue.DecimalPlaces = 2;
+            txtValue.Location = new Point(90, 250);
+            txtValue.Maximum = new decimal(new int[] { 99999, 0, 0, 131072 });
+            txtValue.Name = "txtValue";
+            txtValue.Size = new Size(588, 23);
+            txtValue.TabIndex = 14;
+            // 
+            // txtAmount
+            // 
+            txtAmount.Location = new Point(90, 314);
+            txtAmount.Maximum = new decimal(new int[] { 999, 0, 0, 0 });
+            txtAmount.Name = "txtAmount";
+            txtAmount.Size = new Size(588, 23);
+            txtAmount.TabIndex = 15;
             // 
             // Cadastrar_Produto
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
-            Controls.Add(btCancelarCadastroProdutos);
-            Controls.Add(btCadastrarProdutos);
+            Controls.Add(txtAmount);
+            Controls.Add(txtValue);
+            Controls.Add(btnCancel);
+            Controls.Add(btnSubmit);
             Controls.Add(label5);
             Controls.Add(label4);
             Controls.Add(label3);
             Controls.Add(label2);
-            Controls.Add(txtNomeProduto);
-            Controls.Add(txtCategoriaProduto);
-            Controls.Add(txtValorUnitProtudo);
-            Controls.Add(txtQtdEstoqueProduto);
+            Controls.Add(txtName);
+            Controls.Add(txtCategory);
             Controls.Add(label1);
             ForeColor = SystemColors.WindowText;
             Name = "Cadastrar_Produto";
             Text = "Cadastrar_Produto";
+            ((System.ComponentModel.ISupportInitialize)txtValue).EndInit();
+            ((System.ComponentModel.ISupportInitialize)txtAmount).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -162,17 +171,17 @@
         private TextBox textBox1;
         private TextBox textBox2;
         private TextBox textBox3;
-        private TextBox txtQtdEstoqueProduto;
-        private TextBox txtValorUnitProtudo;
-        private TextBox txtNomeProduto;
-        private TextBox txtCategoriaProduto;
+        private TextBox txtName;
+        private TextBox txtCategory;
         private Label label2;
         private Label label3;
         private Label label4;
         private Label label5;
-        private Button btCadastrarProdutos;
-        private Button btCancelarCadastroProdutos;
+        private Button btnSubmit;
+        private Button btnCancel;
         private FlowLayoutPanel flowLayoutPanel1;
         private Panel panel1;
+        private NumericUpDown txtValue;
+        private NumericUpDown txtAmount;
     }
 }

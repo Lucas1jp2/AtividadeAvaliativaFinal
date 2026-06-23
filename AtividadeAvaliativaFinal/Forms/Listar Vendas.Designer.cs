@@ -28,178 +28,171 @@
         /// </summary>
         private void InitializeComponent()
         {
-            dtListarVendas = new DataGridView();
-            dtCodigoVendaListarVendas = new DataGridViewTextBoxColumn();
-            dtCpfClienteListarVendas = new DataGridViewTextBoxColumn();
-            dtProdutoListarVendas = new DataGridViewTextBoxColumn();
-            dtCategoriaListarVendas = new DataGridViewTextBoxColumn();
-            dtValorUnitarioListarVendas = new DataGridViewTextBoxColumn();
-            dtQuantidadeListarVendas = new DataGridViewTextBoxColumn();
-            dtTotalListarVendas = new DataGridViewTextBoxColumn();
-            btFiltrarListarVendas = new Button();
+            btnFilter = new Button();
             label3 = new Label();
             label2 = new Label();
-            txtCpfClienteListarVendas = new TextBox();
-            txtCodigoVendaListarVendas = new TextBox();
+            txtCpf = new TextBox();
+            txtSellCode = new TextBox();
             label1 = new Label();
-            ((System.ComponentModel.ISupportInitialize)dtListarVendas).BeginInit();
+            gridSales = new DataGridView();
+            gridId = new DataGridViewTextBoxColumn();
+            gridCpf = new DataGridViewTextBoxColumn();
+            gridProd = new DataGridViewTextBoxColumn();
+            gridCategory = new DataGridViewTextBoxColumn();
+            gridValue = new DataGridViewTextBoxColumn();
+            gridAmount = new DataGridViewTextBoxColumn();
+            gridTotal = new DataGridViewTextBoxColumn();
+            ((System.ComponentModel.ISupportInitialize)gridSales).BeginInit();
             SuspendLayout();
             // 
-            // dtListarVendas
+            // btnFilter
             // 
-            dtListarVendas.AllowUserToAddRows = false;
-            dtListarVendas.AllowUserToOrderColumns = true;
-            dtListarVendas.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dtListarVendas.Columns.AddRange(new DataGridViewColumn[] { dtCodigoVendaListarVendas, dtCpfClienteListarVendas, dtProdutoListarVendas, dtCategoriaListarVendas, dtValorUnitarioListarVendas, dtQuantidadeListarVendas, dtTotalListarVendas });
-            dtListarVendas.Location = new Point(66, 347);
-            dtListarVendas.Margin = new Padding(4, 5, 4, 5);
-            dtListarVendas.Name = "dtListarVendas";
-            dtListarVendas.RowHeadersVisible = false;
-            dtListarVendas.RowHeadersWidth = 62;
-            dtListarVendas.Size = new Size(1004, 394);
-            dtListarVendas.TabIndex = 44;
-            // 
-            // dtCodigoVendaListarVendas
-            // 
-            dtCodigoVendaListarVendas.HeaderText = "Id";
-            dtCodigoVendaListarVendas.MinimumWidth = 8;
-            dtCodigoVendaListarVendas.Name = "dtCodigoVendaListarVendas";
-            dtCodigoVendaListarVendas.Width = 150;
-            // 
-            // dtCpfClienteListarVendas
-            // 
-            dtCpfClienteListarVendas.HeaderText = "Cpf - Cliente";
-            dtCpfClienteListarVendas.MinimumWidth = 8;
-            dtCpfClienteListarVendas.Name = "dtCpfClienteListarVendas";
-            dtCpfClienteListarVendas.Width = 150;
-            // 
-            // dtProdutoListarVendas
-            // 
-            dtProdutoListarVendas.HeaderText = "Produto";
-            dtProdutoListarVendas.MinimumWidth = 8;
-            dtProdutoListarVendas.Name = "dtProdutoListarVendas";
-            dtProdutoListarVendas.Width = 150;
-            // 
-            // dtCategoriaListarVendas
-            // 
-            dtCategoriaListarVendas.HeaderText = "Categoria";
-            dtCategoriaListarVendas.MinimumWidth = 8;
-            dtCategoriaListarVendas.Name = "dtCategoriaListarVendas";
-            dtCategoriaListarVendas.Width = 150;
-            // 
-            // dtValorUnitarioListarVendas
-            // 
-            dtValorUnitarioListarVendas.HeaderText = "Valor Unitario";
-            dtValorUnitarioListarVendas.MinimumWidth = 8;
-            dtValorUnitarioListarVendas.Name = "dtValorUnitarioListarVendas";
-            dtValorUnitarioListarVendas.Width = 150;
-            // 
-            // dtQuantidadeListarVendas
-            // 
-            dtQuantidadeListarVendas.HeaderText = "Quantidade";
-            dtQuantidadeListarVendas.MinimumWidth = 8;
-            dtQuantidadeListarVendas.Name = "dtQuantidadeListarVendas";
-            dtQuantidadeListarVendas.Width = 150;
-            // 
-            // dtTotalListarVendas
-            // 
-            dtTotalListarVendas.HeaderText = "Total";
-            dtTotalListarVendas.MinimumWidth = 8;
-            dtTotalListarVendas.Name = "dtTotalListarVendas";
-            dtTotalListarVendas.Width = 150;
-            // 
-            // btFiltrarListarVendas
-            // 
-            btFiltrarListarVendas.Location = new Point(458, 280);
-            btFiltrarListarVendas.Margin = new Padding(4, 5, 4, 5);
-            btFiltrarListarVendas.Name = "btFiltrarListarVendas";
-            btFiltrarListarVendas.Size = new Size(227, 57);
-            btFiltrarListarVendas.TabIndex = 43;
-            btFiltrarListarVendas.Text = "FILTRAR";
-            btFiltrarListarVendas.UseVisualStyleBackColor = true;
+            btnFilter.Location = new Point(321, 148);
+            btnFilter.Name = "btnFilter";
+            btnFilter.Size = new Size(159, 34);
+            btnFilter.TabIndex = 43;
+            btnFilter.Text = "FILTRAR";
+            btnFilter.UseVisualStyleBackColor = true;
             // 
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(151, 200);
-            label3.Margin = new Padding(4, 0, 4, 0);
+            label3.Location = new Point(56, 98);
             label3.Name = "label3";
-            label3.Size = new Size(154, 25);
+            label3.Size = new Size(100, 15);
             label3.TabIndex = 42;
             label3.Text = "Código da Venda:";
             // 
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(151, 108);
-            label2.Margin = new Padding(4, 0, 4, 0);
+            label2.Location = new Point(56, 43);
             label2.Name = "label2";
-            label2.Size = new Size(129, 25);
+            label2.Size = new Size(86, 15);
             label2.TabIndex = 41;
             label2.Text = "Cpf do Cliente:";
             // 
-            // txtCpfClienteListarVendas
+            // txtCpf
             // 
-            txtCpfClienteListarVendas.Location = new Point(151, 138);
-            txtCpfClienteListarVendas.Margin = new Padding(4, 5, 4, 5);
-            txtCpfClienteListarVendas.Name = "txtCpfClienteListarVendas";
-            txtCpfClienteListarVendas.Size = new Size(838, 31);
-            txtCpfClienteListarVendas.TabIndex = 40;
+            txtCpf.Location = new Point(56, 61);
+            txtCpf.Name = "txtCpf";
+            txtCpf.Size = new Size(703, 23);
+            txtCpf.TabIndex = 40;
             // 
-            // txtCodigoVendaListarVendas
+            // txtSellCode
             // 
-            txtCodigoVendaListarVendas.Location = new Point(151, 230);
-            txtCodigoVendaListarVendas.Margin = new Padding(4, 5, 4, 5);
-            txtCodigoVendaListarVendas.Name = "txtCodigoVendaListarVendas";
-            txtCodigoVendaListarVendas.Size = new Size(838, 31);
-            txtCodigoVendaListarVendas.TabIndex = 39;
+            txtSellCode.Location = new Point(56, 116);
+            txtSellCode.Name = "txtSellCode";
+            txtSellCode.Size = new Size(703, 23);
+            txtSellCode.TabIndex = 39;
             // 
             // label1
             // 
             label1.Font = new Font("Calibri", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label1.Location = new Point(343, 15);
-            label1.Margin = new Padding(4, 0, 4, 0);
+            label1.Location = new Point(240, 9);
             label1.Name = "label1";
-            label1.Size = new Size(437, 60);
+            label1.Size = new Size(306, 36);
             label1.TabIndex = 38;
             label1.Text = "Listar Vendas";
             label1.TextAlign = ContentAlignment.MiddleCenter;
             // 
+            // gridSales
+            // 
+            gridSales.AllowUserToAddRows = false;
+            gridSales.AllowUserToOrderColumns = true;
+            gridSales.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            gridSales.Columns.AddRange(new DataGridViewColumn[] { gridId, gridCpf, gridProd, gridCategory, gridValue, gridAmount, gridTotal });
+            gridSales.Location = new Point(56, 191);
+            gridSales.Name = "gridSales";
+            gridSales.RowHeadersVisible = false;
+            gridSales.RowHeadersWidth = 62;
+            gridSales.Size = new Size(703, 233);
+            gridSales.TabIndex = 44;
+            // 
+            // gridId
+            // 
+            gridId.HeaderText = "Codigo Venda";
+            gridId.MinimumWidth = 8;
+            gridId.Name = "gridId";
+            gridId.Width = 150;
+            // 
+            // gridCpf
+            // 
+            gridCpf.HeaderText = "Cpf - Cliente";
+            gridCpf.MinimumWidth = 8;
+            gridCpf.Name = "gridCpf";
+            gridCpf.Width = 150;
+            // 
+            // gridProd
+            // 
+            gridProd.HeaderText = "Produto";
+            gridProd.MinimumWidth = 8;
+            gridProd.Name = "gridProd";
+            gridProd.Width = 150;
+            // 
+            // gridCategory
+            // 
+            gridCategory.HeaderText = "Categoria";
+            gridCategory.MinimumWidth = 8;
+            gridCategory.Name = "gridCategory";
+            gridCategory.Width = 150;
+            // 
+            // gridValue
+            // 
+            gridValue.HeaderText = "Valor Unitário";
+            gridValue.MinimumWidth = 8;
+            gridValue.Name = "gridValue";
+            gridValue.Width = 150;
+            // 
+            // gridAmount
+            // 
+            gridAmount.HeaderText = "Quantidade";
+            gridAmount.MinimumWidth = 8;
+            gridAmount.Name = "gridAmount";
+            gridAmount.Width = 150;
+            // 
+            // gridTotal
+            // 
+            gridTotal.HeaderText = "Total";
+            gridTotal.MinimumWidth = 8;
+            gridTotal.Name = "gridTotal";
+            gridTotal.Width = 150;
+            // 
             // Listar_Venda
             // 
-            AutoScaleDimensions = new SizeF(10F, 25F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1143, 750);
-            Controls.Add(dtListarVendas);
-            Controls.Add(btFiltrarListarVendas);
+            ClientSize = new Size(800, 450);
+            Controls.Add(gridSales);
+            Controls.Add(btnFilter);
             Controls.Add(label3);
             Controls.Add(label2);
-            Controls.Add(txtCpfClienteListarVendas);
-            Controls.Add(txtCodigoVendaListarVendas);
+            Controls.Add(txtCpf);
+            Controls.Add(txtSellCode);
             Controls.Add(label1);
-            Margin = new Padding(4, 5, 4, 5);
             Name = "Listar_Venda";
             Text = "Listar_Venda";
-            ((System.ComponentModel.ISupportInitialize)dtListarVendas).EndInit();
+            ((System.ComponentModel.ISupportInitialize)gridSales).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
 
         #endregion
 
-        private DataGridView dtListarVendas;
-        private Button btFiltrarListarVendas;
+        private DataGridView gridSells;
+        private Button btnFilter;
         private Label label3;
         private Label label2;
-        private TextBox txtCpfClienteListarVendas;
-        private TextBox txtCodigoVendaListarVendas;
+        private TextBox txtCpf;
+        private TextBox txtSellCode;
         private Label label1;
-        private DataGridViewTextBoxColumn dtCodigoVendaListarVendas;
-        private DataGridViewTextBoxColumn dtCpfClienteListarVendas;
-        private DataGridViewTextBoxColumn dtProdutoListarVendas;
-        private DataGridViewTextBoxColumn dtCategoriaListarVendas;
-        private DataGridViewTextBoxColumn dtValorUnitarioListarVendas;
-        private DataGridViewTextBoxColumn dtQuantidadeListarVendas;
-        private DataGridViewTextBoxColumn dtTotalListarVendas;
+        private DataGridView gridSales;
+        private DataGridViewTextBoxColumn gridId;
+        private DataGridViewTextBoxColumn gridCpf;
+        private DataGridViewTextBoxColumn gridProd;
+        private DataGridViewTextBoxColumn gridCategory;
+        private DataGridViewTextBoxColumn gridValue;
+        private DataGridViewTextBoxColumn gridAmount;
+        private DataGridViewTextBoxColumn gridTotal;
     }
 }

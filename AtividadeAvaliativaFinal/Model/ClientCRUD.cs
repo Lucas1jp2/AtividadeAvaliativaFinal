@@ -69,6 +69,23 @@ namespace AtividadeAvaliativaFinal.Model
             }
         }
 
+        public ClientModel ReadByName(string name)
+        {
+            try
+            {
+                string json = File.ReadAllText(DBJson.Clients);
+                var clients = JsonSerializer.Deserialize<List<ClientModel>>(json);
+                var client = clients.FirstOrDefault(c => c.Name == name);
+
+                if (client != null) return client;
+                else return new ClientModel();
+            }
+            catch (Exception ex)
+            {
+                ShowMessages.Error(ex, "Get User", "Cannot get user.");
+                return new ClientModel();
+            }
+        }
 
         public void Update(ClientModel client)
         {
@@ -88,7 +105,7 @@ namespace AtividadeAvaliativaFinal.Model
                 }
                 else ShowMessages.ErrorAlt($"The client #{client.Id} don't exist");
 
-                string _json = JsonSerializer.Serialize(clients, new JsonSerializerOptions { WriteIndented = true });
+                string _json = JsonSerializer.Serialize(clients);
                 File.WriteAllText(DBJson.Clients, _json);
 
                 ShowMessages.Success("Client edited.");
@@ -111,7 +128,7 @@ namespace AtividadeAvaliativaFinal.Model
                 if (_client != null) clients.Remove(_client);
                 else ShowMessages.ErrorAlt($"The client #{client.Id} don't exist");
 
-                string _json = JsonSerializer.Serialize(clients, new JsonSerializerOptions { WriteIndented = true });
+                string _json = JsonSerializer.Serialize(clients);
                 File.WriteAllText(DBJson.Clients, _json);
 
                 ShowMessages.Success("Client deleted.");

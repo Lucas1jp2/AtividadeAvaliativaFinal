@@ -31,26 +31,25 @@
             label1 = new Label();
             label3 = new Label();
             label2 = new Label();
-            txtNomeProdutoListarProdutos = new TextBox();
-            txtCategoriaProdutoListarProdutos = new TextBox();
-            btFiltrarListarProdutos = new Button();
-            dtListarProdutos = new DataGridView();
-            dtIdProdutoListarProdutos = new DataGridViewTextBoxColumn();
-            dtNomeProdutoListarProdutos = new DataGridViewTextBoxColumn();
-            dtCategoriaListarProdutos = new DataGridViewTextBoxColumn();
-            dtValorUnitarioProdutoListarProdutos = new DataGridViewTextBoxColumn();
-            dtQuantidadeEstoqueListarProdutos = new DataGridViewTextBoxColumn();
-            dtTotalListarProdutos = new DataGridViewTextBoxColumn();
-            ((System.ComponentModel.ISupportInitialize)dtListarProdutos).BeginInit();
+            txtFilter = new TextBox();
+            txtCategory = new TextBox();
+            btnFilter = new Button();
+            gridProds = new DataGridView();
+            Id = new DataGridViewTextBoxColumn();
+            Name = new DataGridViewTextBoxColumn();
+            Category = new DataGridViewTextBoxColumn();
+            Value = new DataGridViewTextBoxColumn();
+            Amount = new DataGridViewTextBoxColumn();
+            totalProd = new DataGridViewTextBoxColumn();
+            ((System.ComponentModel.ISupportInitialize)gridProds).BeginInit();
             SuspendLayout();
             // 
             // label1
             // 
             label1.Font = new Font("Calibri", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label1.Location = new Point(341, 15);
-            label1.Margin = new Padding(4, 0, 4, 0);
+            label1.Location = new Point(239, 9);
             label1.Name = "label1";
-            label1.Size = new Size(437, 60);
+            label1.Size = new Size(306, 36);
             label1.TabIndex = 26;
             label1.Text = "Listar Produtos";
             label1.TextAlign = ContentAlignment.MiddleCenter;
@@ -58,123 +57,129 @@
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(150, 200);
-            label3.Margin = new Padding(4, 0, 4, 0);
+            label3.Location = new Point(105, 120);
             label3.Name = "label3";
-            label3.Size = new Size(92, 25);
+            label3.Size = new Size(61, 15);
             label3.TabIndex = 35;
             label3.Text = "Categoria:";
             // 
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(150, 108);
-            label2.Margin = new Padding(4, 0, 4, 0);
+            label2.Location = new Point(105, 65);
             label2.Name = "label2";
-            label2.Size = new Size(81, 25);
+            label2.Size = new Size(53, 15);
             label2.TabIndex = 34;
             label2.Text = "Produto:";
             // 
-            // txtNomeProdutoListarProdutos
+            // txtFilter
             // 
-            txtNomeProdutoListarProdutos.Location = new Point(150, 138);
-            txtNomeProdutoListarProdutos.Margin = new Padding(4, 5, 4, 5);
-            txtNomeProdutoListarProdutos.Name = "txtNomeProdutoListarProdutos";
-            txtNomeProdutoListarProdutos.Size = new Size(838, 31);
-            txtNomeProdutoListarProdutos.TabIndex = 33;
+            txtFilter.Location = new Point(105, 83);
+            txtFilter.Name = "txtFilter";
+            txtFilter.Size = new Size(588, 23);
+            txtFilter.TabIndex = 33;
             // 
-            // txtCategoriaProdutoListarProdutos
+            // txtCategory
             // 
-            txtCategoriaProdutoListarProdutos.Location = new Point(150, 230);
-            txtCategoriaProdutoListarProdutos.Margin = new Padding(4, 5, 4, 5);
-            txtCategoriaProdutoListarProdutos.Name = "txtCategoriaProdutoListarProdutos";
-            txtCategoriaProdutoListarProdutos.Size = new Size(838, 31);
-            txtCategoriaProdutoListarProdutos.TabIndex = 32;
+            txtCategory.Location = new Point(105, 138);
+            txtCategory.Name = "txtCategory";
+            txtCategory.Size = new Size(588, 23);
+            txtCategory.TabIndex = 32;
             // 
-            // btFiltrarListarProdutos
+            // btnFilter
             // 
-            btFiltrarListarProdutos.Location = new Point(452, 271);
-            btFiltrarListarProdutos.Margin = new Padding(4, 5, 4, 5);
-            btFiltrarListarProdutos.Name = "btFiltrarListarProdutos";
-            btFiltrarListarProdutos.Size = new Size(227, 57);
-            btFiltrarListarProdutos.TabIndex = 36;
-            btFiltrarListarProdutos.Text = "FILTRAR";
-            btFiltrarListarProdutos.UseVisualStyleBackColor = true;
+            btnFilter.Location = new Point(316, 163);
+            btnFilter.Name = "btnFilter";
+            btnFilter.Size = new Size(159, 34);
+            btnFilter.TabIndex = 36;
+            btnFilter.Text = "FILTRAR";
+            btnFilter.UseVisualStyleBackColor = true;
+            btnFilter.Click += btnFilter_Click;
             // 
-            // dtListarProdutos
+            // gridProds
             // 
-            dtListarProdutos.AllowUserToAddRows = false;
-            dtListarProdutos.AllowUserToOrderColumns = true;
-            dtListarProdutos.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dtListarProdutos.Columns.AddRange(new DataGridViewColumn[] { dtIdProdutoListarProdutos, dtNomeProdutoListarProdutos, dtCategoriaListarProdutos, dtValorUnitarioProdutoListarProdutos, dtQuantidadeEstoqueListarProdutos, dtTotalListarProdutos });
-            dtListarProdutos.Location = new Point(139, 338);
-            dtListarProdutos.Margin = new Padding(4, 5, 4, 5);
-            dtListarProdutos.Name = "dtListarProdutos";
-            dtListarProdutos.RowHeadersVisible = false;
-            dtListarProdutos.RowHeadersWidth = 62;
-            dtListarProdutos.Size = new Size(861, 398);
-            dtListarProdutos.TabIndex = 37;
+            gridProds.AllowUserToAddRows = false;
+            gridProds.AutoGenerateColumns = false;
+            gridProds.AllowUserToOrderColumns = true;
+            gridProds.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            gridProds.Columns.AddRange(new DataGridViewColumn[] { Id, Name, Category, Value, Amount, totalProd });
+            gridProds.Location = new Point(97, 203);
+            gridProds.Name = "gridProds";
+            gridProds.RowHeadersVisible = false;
+            gridProds.RowHeadersWidth = 62;
+            gridProds.Size = new Size(603, 239);
+            gridProds.TabIndex = 37;
             // 
-            // dtIdProdutoListarProdutos
+            // Id
             // 
-            dtIdProdutoListarProdutos.HeaderText = "Id";
-            dtIdProdutoListarProdutos.MinimumWidth = 8;
-            dtIdProdutoListarProdutos.Name = "dtIdProdutoListarProdutos";
-            dtIdProdutoListarProdutos.Width = 150;
+            Id.HeaderText = "Id";
+            Id.MinimumWidth = 8;
+            Id.Name = "Id";
+            Id.Width = 150;
             // 
-            // dtNomeProdutoListarProdutos
+            // Name
             // 
-            dtNomeProdutoListarProdutos.HeaderText = "Produto";
-            dtNomeProdutoListarProdutos.MinimumWidth = 8;
-            dtNomeProdutoListarProdutos.Name = "dtNomeProdutoListarProdutos";
-            dtNomeProdutoListarProdutos.Width = 150;
+            Name.HeaderText = "Produto";
+            Name.MinimumWidth = 8;
+            Name.Name = "Name";
+            Name.Width = 150;
             // 
-            // dtCategoriaListarProdutos
+            // Category
             // 
-            dtCategoriaListarProdutos.HeaderText = "Categoria";
-            dtCategoriaListarProdutos.MinimumWidth = 8;
-            dtCategoriaListarProdutos.Name = "dtCategoriaListarProdutos";
-            dtCategoriaListarProdutos.Width = 150;
+            Category.HeaderText = "Categoria";
+            Category.MinimumWidth = 8;
+            Category.Name = "Category";
+            Category.Width = 150;
+            Id.DataPropertyName = "Category";
             // 
-            // dtValorUnitarioProdutoListarProdutos
+            // Value
             // 
-            dtValorUnitarioProdutoListarProdutos.HeaderText = "Valor Unitário";
-            dtValorUnitarioProdutoListarProdutos.MinimumWidth = 8;
-            dtValorUnitarioProdutoListarProdutos.Name = "dtValorUnitarioProdutoListarProdutos";
-            dtValorUnitarioProdutoListarProdutos.Width = 150;
+            Value.HeaderText = "Valor Unitário";
+            Value.MinimumWidth = 8;
+            Value.Name = "Value";
+            Value.Width = 150;
             // 
-            // dtQuantidadeEstoqueListarProdutos
+            // Amount
             // 
-            dtQuantidadeEstoqueListarProdutos.HeaderText = "Quantidade em Estoque";
-            dtQuantidadeEstoqueListarProdutos.MinimumWidth = 8;
-            dtQuantidadeEstoqueListarProdutos.Name = "dtQuantidadeEstoqueListarProdutos";
-            dtQuantidadeEstoqueListarProdutos.Width = 150;
+            Amount.HeaderText = "Quantidade em Estoque";
+            Amount.MinimumWidth = 8;
+            Amount.Name = "Amount";
+            Amount.Width = 150;
             // 
-            // dtTotalListarProdutos
+            // totalProd
             // 
-            dtTotalListarProdutos.HeaderText = "Total";
-            dtTotalListarProdutos.MinimumWidth = 8;
-            dtTotalListarProdutos.Name = "dtTotalListarProdutos";
-            dtTotalListarProdutos.Width = 150;
+            totalProd.HeaderText = "Total";
+            totalProd.MinimumWidth = 8;
+            totalProd.Name = "totalProd";
+            totalProd.Width = 150;
             // 
             // Listar_Produto
             // 
-            AutoScaleDimensions = new SizeF(10F, 25F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1143, 750);
-            Controls.Add(dtListarProdutos);
-            Controls.Add(btFiltrarListarProdutos);
+            ClientSize = new Size(800, 450);
+            Controls.Add(gridProds);
+            Controls.Add(btnFilter);
             Controls.Add(label3);
             Controls.Add(label2);
-            Controls.Add(txtNomeProdutoListarProdutos);
-            Controls.Add(txtCategoriaProdutoListarProdutos);
+            Controls.Add(txtFilter);
+            Controls.Add(txtCategory);
             Controls.Add(label1);
-            Margin = new Padding(4, 5, 4, 5);
-            Name = "Listar_Produto";
             Text = "Listar_Produto";
-            ((System.ComponentModel.ISupportInitialize)dtListarProdutos).EndInit();
+            ((System.ComponentModel.ISupportInitialize)gridProds).EndInit();
             ResumeLayout(false);
             PerformLayout();
+            // 
+            // Grid_Cols_Config
+            // 
+            Id.DataPropertyName = "Id";
+            Name.DataPropertyName = "Name";
+            Category.DataPropertyName = "Category";
+            Value.DataPropertyName = "Value";
+            Value.DefaultCellStyle.Format = "C2";
+            Amount.DataPropertyName = "Amount";
+            totalProd.DataPropertyName = "TotalValue";
+            totalProd.DefaultCellStyle.Format = "C2";
         }
 
         #endregion
@@ -182,15 +187,15 @@
         private Label label1;
         private Label label3;
         private Label label2;
-        private TextBox txtNomeProdutoListarProdutos;
-        private TextBox txtCategoriaProdutoListarProdutos;
-        private Button btFiltrarListarProdutos;
-        private DataGridView dtListarProdutos;
-        private DataGridViewTextBoxColumn dtIdProdutoListarProdutos;
-        private DataGridViewTextBoxColumn dtNomeProdutoListarProdutos;
-        private DataGridViewTextBoxColumn dtCategoriaListarProdutos;
-        private DataGridViewTextBoxColumn dtValorUnitarioProdutoListarProdutos;
-        private DataGridViewTextBoxColumn dtQuantidadeEstoqueListarProdutos;
-        private DataGridViewTextBoxColumn dtTotalListarProdutos;
+        private TextBox txtFilter;
+        private TextBox txtCategory;
+        private Button btnFilter;
+        private DataGridView gridProds;
+        private DataGridViewTextBoxColumn Id;
+        private DataGridViewTextBoxColumn Name;
+        private DataGridViewTextBoxColumn Category;
+        private DataGridViewTextBoxColumn Value;
+        private DataGridViewTextBoxColumn Amount;
+        private DataGridViewTextBoxColumn totalProd;
     }
 }

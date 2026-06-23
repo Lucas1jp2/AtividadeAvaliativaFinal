@@ -14,6 +14,8 @@ namespace AtividadeAvaliativaFinal.Forms
 {
     public partial class Cadastrar_Cliente : Form
     {
+        ClientCRUD CRUD = new ClientCRUD();
+
         public Cadastrar_Cliente()
         {
             InitializeComponent();
@@ -27,11 +29,15 @@ namespace AtividadeAvaliativaFinal.Forms
             if (!Checker.ValidEmail(txtEmail.Text)) validEmail = false;
             if (Checker.NumInText(txtName.Text)) { ShowMessages.InvalidData("Nome"); validName = false; }
 
-            if (validCpf && validPhone && validEmail && validName)
+            if ((validCpf && validPhone && validEmail && validName) && (txtName.Text.Replace(" ", "").Length > 0))
             {
-                ClientCRUD CRUD = new ClientCRUD();
-
-                ClientModel Client = new ClientModel { Id = CRUD.GenId(), CPF = txtCpf.Text, Email = txtEmail.Text, Name = txtName.Text, Phone = txtPhone.Text };
+                ClientModel Client = new ClientModel { 
+                    Id = CRUD.GenId(), 
+                    CPF = txtCpf.Text, 
+                    Email = txtEmail.Text, 
+                    Name = txtName.Text, 
+                    Phone = txtPhone.Text 
+                };
 
                 CRUD.Create(Client);
             }
