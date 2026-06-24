@@ -54,18 +54,7 @@ namespace AtividadeAvaliativaFinal.Forms
         private void RenderGrid(List<SaleModel> sales)
         {
             gridSales.DataSource = null;
-            var formatSales = sales.Select(sale => new
-            {
-                sale.Id,
-                sale.Client,
-                Product = sale.Product.Name,
-                Category = sale.Product.Category,
-                Value = sale.Product.Value,
-                sale.Amount,
-                sale.TotalValue
-            }).ToList();
-
-            gridSales.DataSource = formatSales;
+            gridSales.DataSource = sales;
         }
 
         private void gridSales_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
@@ -73,9 +62,20 @@ namespace AtividadeAvaliativaFinal.Forms
             try
             {
                 var saleProd = gridSales.Rows[e.RowIndex].DataBoundItem as SaleModel;
-                if (gridSales.Columns[e.ColumnIndex].Name == "gridProd") e.Value = saleProd.Product.Name;
-                if (gridSales.Columns[e.ColumnIndex].Name == "gridCategory") e.Value = saleProd.Product.Category;
-                if (gridSales.Columns[e.ColumnIndex].Name == "gridValue") e.Value = saleProd.Product.Value;
+
+                
+
+                if (saleProd != null)
+                {
+                    if (e.RowIndex >= 0 || e.ColumnIndex >= 0)
+                    {
+                        if (gridSales.Columns[e.ColumnIndex].Name == "gridName") e.Value = saleProd.Product.Name;
+                        if (gridSales.Columns[e.ColumnIndex].Name == "gridCategory") e.Value = saleProd.Product.Category;
+                        if (gridSales.Columns[e.ColumnIndex].Name == "gridValue") e.Value = saleProd.Product.Value;
+
+                    }
+                }
+                
             }
             catch (Exception ex)
             {
