@@ -99,8 +99,7 @@ namespace AtividadeAvaliativaFinal.Forms
 
                         prodCRUD.Update(prod);
                     }
-                    else if (txtAmountBuy.Value > 0) ShowMessages.ErrorAlt($"Just have {prod.Amount} products in stock.");
-                    else ShowMessages.ErrorAlt($"Dont have more products in stock.");
+                    else if (prod.Amount == 0) ShowMessages.ErrorAlt($"Dont have more products in stock.");
                 }
                 else ShowMessages.ErrorAlt("Product or Client wrong.");
 
@@ -135,12 +134,12 @@ namespace AtividadeAvaliativaFinal.Forms
 
                 if (prod != null)
                 {
-                    if (txtAmountBuy.Value > prod.Amount)
+                    if (txtAmountBuy.Value > prod.Amount && prod.Amount > 0)
                     {
                         ShowMessages.ErrorAlt($"Just have {prod.Amount} products in stock.");
                         txtAmountBuy.Value = prod.Amount;
                     }
-                    else if (prod.Amount == 0)
+                    if (prod.Amount == 0)
                     {
                         ShowMessages.ErrorAlt($"Dont have more products in stock.");
                         txtAmountBuy.Value = 0;
