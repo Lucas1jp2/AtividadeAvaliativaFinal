@@ -126,6 +126,7 @@
             // 
             gridSellItems.AllowUserToAddRows = false;
             gridSellItems.AllowUserToOrderColumns = true;
+            gridSellItems.AutoGenerateColumns = false;
             gridSellItems.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             gridSellItems.Columns.AddRange(new DataGridViewColumn[] { gridId, gridCpf, gridProd, gridCategory, gridValue, gridAmount, gridTotal });
             gridSellItems.Location = new Point(39, 245);

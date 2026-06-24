@@ -28,24 +28,22 @@
         /// </summary>
         private void InitializeComponent()
         {
-            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
             label1 = new Label();
             btnFilter = new Button();
-            gridSales = new DataGridView();
             label2 = new Label();
             label3 = new Label();
             txtCpf = new MaskedTextBox();
             txtSale = new NumericUpDown();
+            gridSales = new DataGridView();
             gridId = new DataGridViewTextBoxColumn();
-            gridCpf = new DataGridViewTextBoxColumn();
-            gridProd = new DataGridViewTextBoxColumn();
+            gridClient = new DataGridViewTextBoxColumn();
+            gridName = new DataGridViewTextBoxColumn();
             gridCategory = new DataGridViewTextBoxColumn();
             gridValue = new DataGridViewTextBoxColumn();
             gridAmount = new DataGridViewTextBoxColumn();
             gridTotal = new DataGridViewTextBoxColumn();
-            ((System.ComponentModel.ISupportInitialize)gridSales).BeginInit();
             ((System.ComponentModel.ISupportInitialize)txtSale).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)gridSales).BeginInit();
             SuspendLayout();
             // 
             // label1
@@ -67,22 +65,6 @@
             btnFilter.Text = "Filtrar";
             btnFilter.UseVisualStyleBackColor = true;
             btnFilter.Click += btnFilter_Click;
-            // 
-            // gridSales
-            // 
-            gridSales.AllowUserToAddRows = false;
-            gridSales.AllowUserToOrderColumns = true;
-            gridSales.AutoGenerateColumns = false;
-            gridSales.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            gridSales.Columns.AddRange(new DataGridViewColumn[] { gridId, gridCpf, gridProd, gridCategory, gridValue, gridAmount, gridTotal });
-            gridSales.Location = new Point(39, 166);
-            gridSales.Name = "gridSales";
-            gridSales.RowHeadersVisible = false;
-            gridSales.RowHeadersWidth = 62;
-            gridSales.Size = new Size(703, 315);
-            gridSales.TabIndex = 17;
-            gridSales.CellContentClick += dataGridView1_CellContentClick;
-            gridSales.CellFormatting += gridSales_CellFormatting;
             // 
             // label2
             // 
@@ -118,64 +100,68 @@
             txtSale.Size = new Size(703, 23);
             txtSale.TabIndex = 28;
             // 
+            // gridSales
+            // 
+            gridSales.AllowUserToAddRows = false;
+            gridSales.AllowUserToOrderColumns = true;
+            gridSales.AutoGenerateColumns = false;
+            gridSales.Columns.AddRange(new DataGridViewColumn[] { gridId, gridClient, gridName, gridCategory, gridValue, gridAmount, gridTotal });
+            gridSales.Location = new Point(39, 171);
+            gridSales.Name = "gridSales";
+            gridSales.RowHeadersVisible = false;
+            gridSales.Size = new Size(703, 323);
+            gridSales.TabIndex = 29;
+            gridSales.CellFormatting += gridSales_CellFormatting;
+            // 
             // gridId
             // 
             gridId.DataPropertyName = "Id";
             gridId.HeaderText = "Codigo Venda";
-            gridId.MinimumWidth = 8;
             gridId.Name = "gridId";
             gridId.Width = 150;
             // 
-            // gridCpf
+            // gridClient
             // 
-            gridCpf.DataPropertyName = "Client";
-            gridCpf.HeaderText = "Cpf - Cliente";
-            gridCpf.MinimumWidth = 8;
-            gridCpf.Name = "gridCpf";
-            gridCpf.Width = 150;
+            gridClient.DataPropertyName = "Client";
+            gridClient.HeaderText = "CPF - Cliente";
+            gridClient.Name = "gridClient";
+            gridClient.Width = 150;
             // 
-            // gridProd
+            // gridName
             // 
-            gridProd.DataPropertyName = "ProductName";
-            gridProd.HeaderText = "Produto";
-            gridProd.MinimumWidth = 8;
-            gridProd.Name = "gridProd";
-            gridProd.Width = 150;
+            gridName.DataPropertyName = "Name";
+            gridName.HeaderText = "Produto";
+            gridName.Name = "gridName";
+            gridName.Width = 150;
             // 
             // gridCategory
             // 
-            gridCategory.DataPropertyName = "ProductCategory";
+            gridCategory.DataPropertyName = "Category";
             gridCategory.HeaderText = "Categoria";
-            gridCategory.MinimumWidth = 8;
             gridCategory.Name = "gridCategory";
             gridCategory.Width = 150;
             // 
             // gridValue
             // 
-            gridValue.DataPropertyName = "ProductValue";
-            dataGridViewCellStyle1.Format = "C2";
-            gridValue.DefaultCellStyle = dataGridViewCellStyle1;
-            gridValue.HeaderText = "Valor Unitário";
-            gridValue.MinimumWidth = 8;
+            gridValue.DataPropertyName = "Value";
+            gridValue.HeaderText = "Valor Unitario";
             gridValue.Name = "gridValue";
             gridValue.Width = 150;
+            gridValue.DefaultCellStyle.Format = "C2";
             // 
             // gridAmount
             // 
             gridAmount.DataPropertyName = "Amount";
             gridAmount.HeaderText = "Quantidade";
-            gridAmount.MinimumWidth = 8;
             gridAmount.Name = "gridAmount";
             gridAmount.Width = 150;
             // 
             // gridTotal
             // 
             gridTotal.DataPropertyName = "TotalValue";
-            dataGridViewCellStyle2.Format = "C2";
-            gridTotal.DefaultCellStyle = dataGridViewCellStyle2;
             gridTotal.HeaderText = "Total";
-            gridTotal.MinimumWidth = 8;
             gridTotal.Name = "gridTotal";
+            gridTotal.DefaultCellStyle.Format = "C2";
             gridTotal.Width = 150;
             // 
             // Consultar_Venda
@@ -183,17 +169,17 @@
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 506);
+            Controls.Add(gridSales);
             Controls.Add(txtSale);
             Controls.Add(txtCpf);
             Controls.Add(label3);
             Controls.Add(label2);
-            Controls.Add(gridSales);
             Controls.Add(btnFilter);
             Controls.Add(label1);
             Name = "Consultar_Venda";
             Text = "Consultar_Venda";
-            ((System.ComponentModel.ISupportInitialize)gridSales).EndInit();
             ((System.ComponentModel.ISupportInitialize)txtSale).EndInit();
+            ((System.ComponentModel.ISupportInitialize)gridSales).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -202,14 +188,14 @@
 
         private Label label1;
         private Button btnFilter;
-        private DataGridView gridSales;
         private Label label2;
         private Label label3;
         private MaskedTextBox txtCpf;
         private NumericUpDown txtSale;
+        private DataGridView gridSales;
         private DataGridViewTextBoxColumn gridId;
-        private DataGridViewTextBoxColumn gridCpf;
-        private DataGridViewTextBoxColumn gridProd;
+        private DataGridViewTextBoxColumn gridClient;
+        private DataGridViewTextBoxColumn gridName;
         private DataGridViewTextBoxColumn gridCategory;
         private DataGridViewTextBoxColumn gridValue;
         private DataGridViewTextBoxColumn gridAmount;
