@@ -106,7 +106,7 @@ namespace AtividadeAvaliativaFinal.Untils
             try
             {
                 // Check nums
-                if ((CPF == "000.000.000-00" || CPF == "000.000.000-01"))
+                if ((CPF == "000.000.000-00" || CPF == "000.000.000-01") || (CPF == "000,000,000-00" || CPF == "000,000,000-01"))
                 {
                     ShowMessages.InvalidData("CPF");
                     return false;

@@ -1,3 +1,10 @@
 [
-  
+  {
+    "Id":0,
+    "Name": "Ping",
+    "Category": "Pong",
+    "Value": 0.1,
+    "Amount": 2,
+    "TotalValue": 0.2
+  }
 ]

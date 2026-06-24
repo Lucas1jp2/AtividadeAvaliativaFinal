@@ -9,6 +9,12 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Update="Forms\Consultar Venda.cs">
+      <SubType>Form</SubType>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
     <None Update="Context\Data\Clients.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>

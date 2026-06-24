@@ -28,11 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
             label1 = new Label();
             txtName = new TextBox();
             txtCategory = new TextBox();
             txtValue = new TextBox();
-            txtBuyAmt = new TextBox();
             btnCancel = new Button();
             btnSubmit = new Button();
             btnAddInList = new Button();
@@ -52,7 +53,9 @@
             label7 = new Label();
             cbClient = new ComboBox();
             cbProd = new ComboBox();
+            txtAmountBuy = new NumericUpDown();
             ((System.ComponentModel.ISupportInitialize)gridSellItems).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)txtAmountBuy).BeginInit();
             SuspendLayout();
             // 
             // label1
@@ -89,13 +92,6 @@
             txtValue.Size = new Size(322, 23);
             txtValue.TabIndex = 5;
             // 
-            // txtBuyAmt
-            // 
-            txtBuyAmt.Location = new Point(422, 169);
-            txtBuyAmt.Name = "txtBuyAmt";
-            txtBuyAmt.Size = new Size(320, 23);
-            txtBuyAmt.TabIndex = 6;
-            // 
             // btnCancel
             // 
             btnCancel.Location = new Point(422, 455);
@@ -114,6 +110,7 @@
             btnSubmit.TabIndex = 14;
             btnSubmit.Text = "SALVAR VENDA";
             btnSubmit.UseVisualStyleBackColor = true;
+            btnSubmit.Click += btnSubmit_Click;
             // 
             // btnAddInList
             // 
@@ -123,10 +120,12 @@
             btnAddInList.TabIndex = 16;
             btnAddInList.Text = "ADD(+)";
             btnAddInList.UseVisualStyleBackColor = true;
+            btnAddInList.Click += btnAddInList_Click;
             // 
             // gridSellItems
             // 
             gridSellItems.AllowUserToAddRows = false;
+            gridSellItems.AutoGenerateColumns = false;
             gridSellItems.AllowUserToOrderColumns = true;
             gridSellItems.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             gridSellItems.Columns.AddRange(new DataGridViewColumn[] { gridId, gridCpf, gridProd, gridCategory, gridValue, gridAmount, gridTotal });
@@ -137,9 +136,11 @@
             gridSellItems.Size = new Size(703, 192);
             gridSellItems.TabIndex = 17;
             gridSellItems.CellContentClick += dataGridView1_CellContentClick;
+            gridSellItems.CellFormatting += gridSellItems_CellFormatting;
             // 
             // gridId
             // 
+            gridId.DataPropertyName = "Id";
             gridId.HeaderText = "Codigo Venda";
             gridId.MinimumWidth = 8;
             gridId.Name = "gridId";
@@ -147,6 +148,7 @@
             // 
             // gridCpf
             // 
+            gridCpf.DataPropertyName = "Client";
             gridCpf.HeaderText = "Cpf - Cliente";
             gridCpf.MinimumWidth = 8;
             gridCpf.Name = "gridCpf";
@@ -154,6 +156,7 @@
             // 
             // gridProd
             // 
+            gridProd.DataPropertyName = "Product.Name";
             gridProd.HeaderText = "Produto";
             gridProd.MinimumWidth = 8;
             gridProd.Name = "gridProd";
@@ -161,6 +164,7 @@
             // 
             // gridCategory
             // 
+            gridCategory.DataPropertyName = "Product.Category";
             gridCategory.HeaderText = "Categoria";
             gridCategory.MinimumWidth = 8;
             gridCategory.Name = "gridCategory";
@@ -168,6 +172,9 @@
             // 
             // gridValue
             // 
+            gridValue.DataPropertyName = "Product.Value";
+            dataGridViewCellStyle1.Format = "C2";
+            gridValue.DefaultCellStyle = dataGridViewCellStyle1;
             gridValue.HeaderText = "Valor Unitário";
             gridValue.MinimumWidth = 8;
             gridValue.Name = "gridValue";
@@ -175,6 +182,7 @@
             // 
             // gridAmount
             // 
+            gridAmount.DataPropertyName = "Amount";
             gridAmount.HeaderText = "Quantidade";
             gridAmount.MinimumWidth = 8;
             gridAmount.Name = "gridAmount";
@@ -182,6 +190,9 @@
             // 
             // gridTotal
             // 
+            gridTotal.DataPropertyName = "TotalValue";
+            dataGridViewCellStyle2.Format = "C2";
+            gridTotal.DefaultCellStyle = dataGridViewCellStyle2;
             gridTotal.HeaderText = "Total";
             gridTotal.MinimumWidth = 8;
             gridTotal.Name = "gridTotal";
@@ -244,6 +255,7 @@
             // cbClient
             // 
             cbClient.FormattingEnabled = true;
+            cbClient.Items.AddRange(new object[] { "    " });
             cbClient.Location = new Point(39, 40);
             cbClient.Name = "cbClient";
             cbClient.Size = new Size(703, 23);
@@ -252,16 +264,26 @@
             // cbProd
             // 
             cbProd.FormattingEnabled = true;
+            cbProd.Items.AddRange(new object[] { "    " });
             cbProd.Location = new Point(39, 82);
             cbProd.Name = "cbProd";
             cbProd.Size = new Size(703, 23);
             cbProd.TabIndex = 25;
+            cbProd.SelectedIndexChanged += cbProd_SelectedIndexChanged;
+            // 
+            // txtAmountBuy
+            // 
+            txtAmountBuy.Location = new Point(422, 169);
+            txtAmountBuy.Name = "txtAmountBuy";
+            txtAmountBuy.Size = new Size(320, 23);
+            txtAmountBuy.TabIndex = 26;
             // 
             // Registrar_Venda
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 506);
+            Controls.Add(txtAmountBuy);
             Controls.Add(cbProd);
             Controls.Add(cbClient);
             Controls.Add(label7);
@@ -274,7 +296,6 @@
             Controls.Add(btnAddInList);
             Controls.Add(btnCancel);
             Controls.Add(btnSubmit);
-            Controls.Add(txtBuyAmt);
             Controls.Add(txtValue);
             Controls.Add(txtCategory);
             Controls.Add(txtName);
@@ -283,6 +304,7 @@
             Text = "Registrar_Venda";
             Load += Registrar_Venda_Load;
             ((System.ComponentModel.ISupportInitialize)gridSellItems).EndInit();
+            ((System.ComponentModel.ISupportInitialize)txtAmountBuy).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -293,7 +315,6 @@
         private TextBox txtName;
         private TextBox txtCategory;
         private TextBox txtValue;
-        private TextBox txtBuyAmt;
         private Button btnCancel;
         private Button btnSubmit;
         private Button btnAddInList;
@@ -306,6 +327,7 @@
         private Label label7;
         private ComboBox cbClient;
         private ComboBox cbProd;
+        private NumericUpDown txtAmountBuy;
         private DataGridViewTextBoxColumn gridId;
         private DataGridViewTextBoxColumn gridCpf;
         private DataGridViewTextBoxColumn gridProd;

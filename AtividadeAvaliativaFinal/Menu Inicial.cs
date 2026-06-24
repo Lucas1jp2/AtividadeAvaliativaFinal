@@ -44,8 +44,8 @@ namespace AtividadeAvaliativaFinal
 
         private void btListarVendas_Click(object sender, EventArgs e)
         {
-            Form ListarVendas = new Forms.Listar_Venda();
-            ListarVendas.ShowDialog();
+            Form ConsultarVendas = new Forms.Consultar_Venda();
+            ConsultarVendas.ShowDialog();
         }
     }
 }

@@ -130,7 +130,6 @@
             Category.MinimumWidth = 8;
             Category.Name = "Category";
             Category.Width = 150;
-            Id.DataPropertyName = "Category";
             // 
             // Value
             // 

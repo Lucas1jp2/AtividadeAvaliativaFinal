@@ -19,7 +19,7 @@ namespace AtividadeAvaliativaFinal.Model
 
                 products.Add(product);
 
-                string _json = JsonSerializer.Serialize(products, new JsonSerializerOptions { WriteIndented = true });
+                string _json = JsonSerializer.Serialize(products);
                 File.WriteAllText(DBJson.Products, _json);
 
                 ShowMessages.Success("Product created.");
