@@ -136,7 +136,7 @@
             // 
             // gridProd
             // 
-            gridProd.DataPropertyName = "Name";
+            gridProd.DataPropertyName = "ProductName";
             gridProd.HeaderText = "Produto";
             gridProd.MinimumWidth = 8;
             gridProd.Name = "gridProd";
@@ -144,7 +144,7 @@
             // 
             // gridCategory
             // 
-            gridCategory.DataPropertyName = "Category";
+            gridCategory.DataPropertyName = "ProductCategory";
             gridCategory.HeaderText = "Categoria";
             gridCategory.MinimumWidth = 8;
             gridCategory.Name = "gridCategory";
@@ -152,7 +152,7 @@
             // 
             // gridValue
             // 
-            gridValue.DataPropertyName = "Value";
+            gridValue.DataPropertyName = "ProductValue";
             dataGridViewCellStyle1.Format = "C2";
             gridValue.DefaultCellStyle = dataGridViewCellStyle1;
             gridValue.HeaderText = "Valor Unitário";

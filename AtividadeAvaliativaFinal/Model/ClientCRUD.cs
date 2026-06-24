@@ -19,13 +19,21 @@ namespace AtividadeAvaliativaFinal.Model
                 string json = File.ReadAllText(DBJson.Clients);
                 var clients = JsonSerializer.Deserialize<List<ClientModel>>(json);
 
-                clients.Add(client);
+                var _client = clients.FirstOrDefault(c => c.CPF == client.CPF);
+                if (_client != null)
+                {
+                    ShowMessages.ErrorAlt($"CPF {client.CPF} already exists.");
+                    return false;
+                } else
+                {
+                    clients.Add(client);
 
-                string _json = JsonSerializer.Serialize(clients, new JsonSerializerOptions { WriteIndented = true});
-                File.WriteAllText(DBJson.Clients, _json);
+                    string _json = JsonSerializer.Serialize(clients, new JsonSerializerOptions { WriteIndented = true });
+                    File.WriteAllText(DBJson.Clients, _json);
 
-                ShowMessages.Success("Client created.");
-                return true;
+                    ShowMessages.Success("Client created.");
+                    return true;
+                }
             }
             catch(Exception ex)
             {

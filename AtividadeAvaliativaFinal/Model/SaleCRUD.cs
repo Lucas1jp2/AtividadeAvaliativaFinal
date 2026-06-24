@@ -107,7 +107,7 @@ namespace AtividadeAvaliativaFinal.Model
                 if (_sale != null)
                 {
                     _sale.Client = sale.Client;
-                    _sale.Product = new ProductModel { Name = sale.Product.Name, Category = sale.Product.Category, Value = sale.Product.Value, Id = sale.Product.Id, Amount = sale.Product.Amount, TotalValue = sale.Product.TotalValue };
+                    _sale.Product = sale.Product;
                     _sale.Amount = sale.Amount;
                     _sale.TotalValue = sale.Product.Value * sale.Amount;
                 }

@@ -46,20 +46,22 @@ namespace AtividadeAvaliativaFinal.Forms
 
         private void btnFilter_Click(object sender, EventArgs e)
         {
-            if (txtCpf.Text.Replace(".", "").Replace(",", "").Replace("-", "").Replace("_", "").Length > 0 && Checker.ValidCPF(txtCpf.Text) && txtSale.Value > 0)
-            {
-                SalesList.Clear();
-                SalesList.AddRange(CRUD.ReadByFilter(Convert.ToInt16(txtSale.Value), txtCpf.Text));
-                gridSales.DataSource = null;
-                gridSales.DataSource = SalesList;
-            }
-            else
-            {
-                SalesList.Clear();
-                SalesList.AddRange(CRUD.Read());
-                gridSales.DataSource = null;
-                gridSales.DataSource = SalesList;
-            }
+            SalesList.Clear();
+
+            if (
+                txtCpf.Text.Replace(".", "").Replace(",", "").Replace("-", "").Replace("_", "").Length > 0 && 
+                Checker.ValidCPF(txtCpf.Text) &&
+                txtSale.Value > 0
+            ) SalesList.AddRange(CRUD.ReadByFilter(Convert.ToInt16(txtSale.Value), txtCpf.Text));
+            else if (
+                txtCpf.Text.Replace(".", "").Replace(",", "").Replace("-", "").Replace("_", "").Length > 0 &&
+                Checker.ValidCPF(txtCpf.Text)
+            ) SalesList.AddRange(CRUD.ReadByFilter(0, txtCpf.Text));
+            else if(txtSale.Value > 0) SalesList.AddRange(CRUD.ReadByFilter(Convert.ToInt16(txtSale.Value)));
+            else SalesList.AddRange(CRUD.Read());
+
+            gridSales.DataSource = null;
+            gridSales.DataSource = SalesList;
         }
     }
 }

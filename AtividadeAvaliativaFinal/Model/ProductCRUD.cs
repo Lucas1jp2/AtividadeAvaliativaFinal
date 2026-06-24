@@ -106,8 +106,6 @@ namespace AtividadeAvaliativaFinal.Model
 
                 string _json = JsonSerializer.Serialize(products);
                 File.WriteAllText(DBJson.Products, _json);
-
-                ShowMessages.Success("Product edited.");
             }
             catch (Exception ex)
             {

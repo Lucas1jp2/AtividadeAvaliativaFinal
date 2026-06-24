@@ -125,7 +125,6 @@
             // gridSellItems
             // 
             gridSellItems.AllowUserToAddRows = false;
-            gridSellItems.AutoGenerateColumns = false;
             gridSellItems.AllowUserToOrderColumns = true;
             gridSellItems.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             gridSellItems.Columns.AddRange(new DataGridViewColumn[] { gridId, gridCpf, gridProd, gridCategory, gridValue, gridAmount, gridTotal });
@@ -156,7 +155,7 @@
             // 
             // gridProd
             // 
-            gridProd.DataPropertyName = "Product.Name";
+            gridProd.DataPropertyName = "Name";
             gridProd.HeaderText = "Produto";
             gridProd.MinimumWidth = 8;
             gridProd.Name = "gridProd";
@@ -164,7 +163,7 @@
             // 
             // gridCategory
             // 
-            gridCategory.DataPropertyName = "Product.Category";
+            gridCategory.DataPropertyName = "Category";
             gridCategory.HeaderText = "Categoria";
             gridCategory.MinimumWidth = 8;
             gridCategory.Name = "gridCategory";
@@ -172,7 +171,7 @@
             // 
             // gridValue
             // 
-            gridValue.DataPropertyName = "Product.Value";
+            gridValue.DataPropertyName = "Value";
             dataGridViewCellStyle1.Format = "C2";
             gridValue.DefaultCellStyle = dataGridViewCellStyle1;
             gridValue.HeaderText = "Valor Unitário";
@@ -277,6 +276,7 @@
             txtAmountBuy.Name = "txtAmountBuy";
             txtAmountBuy.Size = new Size(320, 23);
             txtAmountBuy.TabIndex = 26;
+            txtAmountBuy.ValueChanged += txtAmountBuy_ValueChanged;
             // 
             // Registrar_Venda
             // 
