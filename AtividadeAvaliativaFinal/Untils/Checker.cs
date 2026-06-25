@@ -120,7 +120,7 @@ namespace AtividadeAvaliativaFinal.Untils
                     }
                     else
                     {
-                        CPF = CPF.Replace(".", "").Replace(",", "").Replace("-", "");
+                        CPF = CPF.Replace(".", "").Replace(",", "").Replace("-", "").Replace("_", "").Replace(" ", "");
 
                         if (TextInNums(CPF))
                         {

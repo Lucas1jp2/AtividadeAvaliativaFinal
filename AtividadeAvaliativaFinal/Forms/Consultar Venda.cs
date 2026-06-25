@@ -15,14 +15,11 @@ namespace AtividadeAvaliativaFinal.Forms
         SaleCRUD saleCRUD = new SaleCRUD();
         ProductCRUD prodCRUD = new ProductCRUD();
         ClientCRUD clientCRUD = new ClientCRUD();
-        List<SaleModel> SalesList = new List<SaleModel>();
 
         public Consultar_Venda()
         {
             InitializeComponent();
-
-            SalesList.AddRange(saleCRUD.Read());
-            genGridItems(SalesList, "", 0);
+            genGridItems(saleCRUD.Read());
         }
 
 
@@ -33,59 +30,32 @@ namespace AtividadeAvaliativaFinal.Forms
 
         private void btnFilter_Click(object sender, EventArgs e)
         {
-            SalesList.Clear();
-
-            if (
-                txtCpf.Text.Replace(".", "").Replace(",", "").Replace("-", "").Replace("_", "").Length > 0 &&
-                Checker.ValidCPF(txtCpf.Text) &&
-                txtSale.Value > 0
-            ) SalesList.AddRange(saleCRUD.ReadByFilter(Convert.ToInt16(txtSale.Value), txtCpf.Text));
-
-            else if (
-                txtCpf.Text.Replace(".", "").Replace(",", "").Replace("-", "").Replace("_", "").Length > 0 &&
-                Checker.ValidCPF(txtCpf.Text)
-            ) SalesList.AddRange(saleCRUD.ReadByFilter(0, txtCpf.Text));
-
-            else if (txtSale.Value > 0) SalesList.AddRange(saleCRUD.ReadByFilter(Convert.ToInt16(txtSale.Value)));
-
-            else SalesList.AddRange(saleCRUD.Read());
-
-            genGridItems(SalesList, txtCpf.Text, Convert.ToInt16(txtSale.Value));
+            genGridItems(saleCRUD.Read(), txtCpf.Text, Convert.ToInt16(txtSale.Value));
+            MessageBox.Show(txtCpf.Text);
         }
 
         private void genGridItems(List<SaleModel> sales, string? cpf = "", int? saleId = 0)
         {
             List<(SaleModel sale, ClientModel client, ProductModel product)> formatSales = new List<(SaleModel sale, ClientModel client, ProductModel product)>();
 
-            var client = new ClientModel();
-            var sale = new SaleModel();
-
-            foreach (var _sale in sales)
+            foreach (var sale in sales)
             {
-                var _client = clientCRUD.ReadById(_sale.ClientId);
-                var _product = prodCRUD.ReadById(_sale.ProductId);
+                var client = clientCRUD.ReadById(sale.ClientId);
+                var product = prodCRUD.ReadById(sale.ProductId);
 
-                if (_product != null && _client != null) formatSales.Add((_sale, _client, _product!));
+                if (product != null && client != null) formatSales.Add((sale, client, product!));
             }
 
-            if (Checker.ValidCPF(cpf) && cpf.Length > 0) client = clientCRUD.ReadByCPF(cpf);
-            if (saleId != 0) sale = saleCRUD.ReadById(Convert.ToInt16(saleId));
-
-            if(Checker.ValidCPF(cpf) && cpf.Length > 0 && saleId != 0) 
+            if(cpf.Length == 14 && clientCRUD.ReadByCPF(cpf) != null) 
             {
-                var filterSales = formatSales.Where(s => s.client.CPF == client.CPF && s.sale.Id == sale.Id).ToList();
+                var filterSales = formatSales.Where(s => s.client.CPF == clientCRUD.ReadByCPF(cpf).CPF).ToList();
                 formatSales.Clear();
                 formatSales.AddRange(filterSales);
             }
-            else if(Checker.ValidCPF(cpf) && cpf.Length > 0) 
+
+            if(saleId > 0 && saleCRUD.ReadById(Convert.ToInt16(saleId)) != null) 
             {
-                var filterSales = formatSales.Where(s => s.client.CPF == client.CPF).ToList();
-                formatSales.Clear();
-                formatSales.AddRange(filterSales);
-            }
-            else if(saleId != 0) 
-            {
-                var filterSales = formatSales.Where(s => s.sale.Id == sale.Id).ToList();
+                var filterSales = formatSales.Where(s => s.sale.Id == saleCRUD.ReadById(Convert.ToInt16(saleId)).Id).ToList();
                 formatSales.Clear();
                 formatSales.AddRange(filterSales);
             }

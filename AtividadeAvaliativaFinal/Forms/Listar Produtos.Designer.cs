@@ -28,6 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
             label1 = new Label();
             label3 = new Label();
             label2 = new Label();
@@ -99,7 +101,6 @@
             // gridProds
             // 
             gridProds.AllowUserToAddRows = false;
-            gridProds.AutoGenerateColumns = false;
             gridProds.AllowUserToOrderColumns = true;
             gridProds.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             gridProds.Columns.AddRange(new DataGridViewColumn[] { Id, Name, Category, Value, Amount, totalProd });
@@ -112,6 +113,7 @@
             // 
             // Id
             // 
+            Id.DataPropertyName = "Id";
             Id.HeaderText = "Id";
             Id.MinimumWidth = 8;
             Id.Name = "Id";
@@ -119,6 +121,7 @@
             // 
             // Name
             // 
+            Name.DataPropertyName = "Product";
             Name.HeaderText = "Produto";
             Name.MinimumWidth = 8;
             Name.Name = "Name";
@@ -126,6 +129,7 @@
             // 
             // Category
             // 
+            Category.DataPropertyName = "Category";
             Category.HeaderText = "Categoria";
             Category.MinimumWidth = 8;
             Category.Name = "Category";
@@ -133,6 +137,9 @@
             // 
             // Value
             // 
+            Value.DataPropertyName = "Value";
+            dataGridViewCellStyle1.Format = "C2";
+            Value.DefaultCellStyle = dataGridViewCellStyle1;
             Value.HeaderText = "Valor Unitário";
             Value.MinimumWidth = 8;
             Value.Name = "Value";
@@ -140,6 +147,7 @@
             // 
             // Amount
             // 
+            Amount.DataPropertyName = "Amount";
             Amount.HeaderText = "Quantidade em Estoque";
             Amount.MinimumWidth = 8;
             Amount.Name = "Amount";
@@ -147,6 +155,9 @@
             // 
             // totalProd
             // 
+            totalProd.DataPropertyName = "TotalValue";
+            dataGridViewCellStyle2.Format = "C2";
+            totalProd.DefaultCellStyle = dataGridViewCellStyle2;
             totalProd.HeaderText = "Total";
             totalProd.MinimumWidth = 8;
             totalProd.Name = "totalProd";
@@ -168,17 +179,6 @@
             ((System.ComponentModel.ISupportInitialize)gridProds).EndInit();
             ResumeLayout(false);
             PerformLayout();
-            // 
-            // Grid_Cols_Config
-            // 
-            Id.DataPropertyName = "Id";
-            Name.DataPropertyName = "Name";
-            Category.DataPropertyName = "Category";
-            Value.DataPropertyName = "Value";
-            Value.DefaultCellStyle.Format = "C2";
-            Amount.DataPropertyName = "Amount";
-            totalProd.DataPropertyName = "TotalValue";
-            totalProd.DefaultCellStyle.Format = "C2";
         }
 
         #endregion
