@@ -1,10 +1,26 @@
 [
   {
     "Id":0,
-    "Product": "Ping",
-    "Category": "Pong",
-    "Value": 0.1,
-    "Amount": 2,
-    "TotalValue": 0.2
+    "Product": "Batata",
+    "Category": "Vegetal",
+    "Value": 10.0,
+    "Amount": 25,
+    "TotalValue": 250.0
+  },
+  {
+    "Id":0,
+    "Product": "Doce",
+    "Category": "Alimento",
+    "Value": 22.0,
+    "Amount": 11,
+    "TotalValue": 242.0
+  },
+  {
+    "Id":0,
+    "Product": "Frango",
+    "Category": "Carne",
+    "Value":25.00,
+    "Amount": 6,
+    "TotalValue": 150.0
   }
 ]
