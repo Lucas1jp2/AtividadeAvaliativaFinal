@@ -31,7 +31,6 @@ namespace AtividadeAvaliativaFinal.Forms
         private void btnFilter_Click(object sender, EventArgs e)
         {
             genGridItems(saleCRUD.Read(), txtCpf.Text, Convert.ToInt16(txtSale.Value));
-            MessageBox.Show(txtCpf.Text);
         }
 
         private void genGridItems(List<SaleModel> sales, string? cpf = "", int? saleId = 0)
@@ -46,7 +45,7 @@ namespace AtividadeAvaliativaFinal.Forms
                 if (product != null && client != null) formatSales.Add((sale, client, product!));
             }
 
-            if(cpf.Length == 14 && clientCRUD.ReadByCPF(cpf) != null) 
+            if(txtCpf.Text.Replace(".", "").Replace(",", "").Replace("-", "").Replace("_", "").Replace(" ", "").Length > 11) 
             {
                 var filterSales = formatSales.Where(s => s.client.CPF == clientCRUD.ReadByCPF(cpf).CPF).ToList();
                 formatSales.Clear();
