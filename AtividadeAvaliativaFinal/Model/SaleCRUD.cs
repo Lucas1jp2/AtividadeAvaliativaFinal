@@ -77,12 +77,21 @@ namespace AtividadeAvaliativaFinal.Model
 
                 if(sales != null)
                 {
-                    if (id != 0 && cpf != "" && Checker.ValidCPF(cpf)) filterSales.AddRange(sales.Where(s => s.Id == id && s.Client == cpf));
+                    ClientCRUD clientCRUD = new ClientCRUD();
+                    var client = clientCRUD.ReadByCPF(cpf);
+
+                    if (id != 0 && cpf != "")
+                    {
+                        if (client != null) filterSales.AddRange(sales.Where(s => s.Id == id && s.ClientId == client.Id));
+                    }
                     else if (id != 0) filterSales.AddRange(sales.Where(s => s.Id == id));
-                    else if (cpf != "" && Checker.ValidCPF(cpf)) filterSales.AddRange(sales.Where(s => s.Client == cpf));
+                    else if (cpf != "")
+                    {
+                        if (client != null) filterSales.AddRange(sales.Where(s => s.Id == id && s.ClientId == client.Id));
+                    }
                     else filterSales.AddRange(sales);
 
-                    filterSales.OrderBy(s => s.Id).OrderBy(s => s.Client);
+                    filterSales.OrderBy(s => s.Id).OrderBy(s => s.ClientId);
 
                     return filterSales;
                 }
@@ -106,10 +115,12 @@ namespace AtividadeAvaliativaFinal.Model
 
                 if (_sale != null)
                 {
-                    _sale.Client = sale.Client;
-                    _sale.Product = sale.Product;
+                    ProductCRUD productCRUD = new ProductCRUD();
+
+                    _sale.ClientId = sale.ClientId;
+                    _sale.ProductId = sale.ProductId;
                     _sale.Amount = sale.Amount;
-                    _sale.TotalValue = sale.Product.Value * sale.Amount;
+                    _sale.TotalValue = productCRUD.ReadById(sale.ProductId).Value * sale.Amount;
                 }
                 else ShowMessages.ErrorAlt($"The sale #{sale.Id} don't exist");
 

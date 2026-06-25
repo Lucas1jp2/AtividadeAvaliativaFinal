@@ -28,6 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
             label1 = new Label();
             btnFilter = new Button();
             label2 = new Label();
@@ -104,7 +106,6 @@
             // 
             gridSales.AllowUserToAddRows = false;
             gridSales.AllowUserToOrderColumns = true;
-            gridSales.AutoGenerateColumns = false;
             gridSales.Columns.AddRange(new DataGridViewColumn[] { gridId, gridClient, gridName, gridCategory, gridValue, gridAmount, gridTotal });
             gridSales.Location = new Point(39, 171);
             gridSales.Name = "gridSales";
@@ -122,14 +123,14 @@
             // 
             // gridClient
             // 
-            gridClient.DataPropertyName = "Client";
+            gridClient.DataPropertyName = "CPF";
             gridClient.HeaderText = "CPF - Cliente";
             gridClient.Name = "gridClient";
             gridClient.Width = 150;
             // 
             // gridName
             // 
-            gridName.DataPropertyName = "Name";
+            gridName.DataPropertyName = "Product";
             gridName.HeaderText = "Produto";
             gridName.Name = "gridName";
             gridName.Width = 150;
@@ -144,10 +145,11 @@
             // gridValue
             // 
             gridValue.DataPropertyName = "Value";
+            dataGridViewCellStyle1.Format = "C2";
+            gridValue.DefaultCellStyle = dataGridViewCellStyle1;
             gridValue.HeaderText = "Valor Unitario";
             gridValue.Name = "gridValue";
             gridValue.Width = 150;
-            gridValue.DefaultCellStyle.Format = "C2";
             // 
             // gridAmount
             // 
@@ -159,9 +161,10 @@
             // gridTotal
             // 
             gridTotal.DataPropertyName = "TotalValue";
+            dataGridViewCellStyle2.Format = "C2";
+            gridTotal.DefaultCellStyle = dataGridViewCellStyle2;
             gridTotal.HeaderText = "Total";
             gridTotal.Name = "gridTotal";
-            gridTotal.DefaultCellStyle.Format = "C2";
             gridTotal.Width = 150;
             // 
             // Consultar_Venda

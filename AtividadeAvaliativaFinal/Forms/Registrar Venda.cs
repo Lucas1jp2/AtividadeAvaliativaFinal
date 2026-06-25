@@ -28,7 +28,7 @@ namespace AtividadeAvaliativaFinal.Forms
             var clients = clientCRUD.Read();
             var prods = prodCRUD.Read();
 
-            foreach (var prod in prods) cbProd.Items.Add(prod.Name);
+            foreach (var prod in prods) cbProd.Items.Add(prod.Product);
 
             foreach (var client in clients) cbClient.Items.Add(client.Name);
         }
@@ -37,7 +37,7 @@ namespace AtividadeAvaliativaFinal.Forms
         {
             var prod = prodCRUD.ReadByName(cbProd.Text);
 
-            txtName.Text = prod.Name;
+            txtName.Text = prod.Product;
             txtCategory.Text = prod.Category;
             txtValue.Text = prod.Value.ToString();
             txtAmountBuy.Value = 0;
@@ -83,15 +83,14 @@ namespace AtividadeAvaliativaFinal.Forms
                         {
                             Id = saleId,
                             Amount = Convert.ToInt16(txtAmountBuy.Value),
-                            Client = client.CPF,
-                            Product = (prod.Name, prod.Category, prod.Value),
+                            ClientId = client.Id,
+                            ProductId = prod.Id,
                             TotalValue = Convert.ToInt16(txtAmountBuy.Value) * prod.Value
                         };
 
                         saleItems.Add(item);
 
-                        gridSellItems.DataSource = null;
-                        gridSellItems.DataSource = saleItems;
+                        genGridItems(saleItems);
 
                         prod.Amount = prod.Amount - Convert.ToInt16(txtAmountBuy.Value);
 
@@ -106,19 +105,34 @@ namespace AtividadeAvaliativaFinal.Forms
             }
         }
 
+        private void genGridItems(List<SaleModel> sales)
+        {
+            List<(SaleModel sale, ClientModel client, ProductModel product)> formatSales = new List<(SaleModel sale, ClientModel client, ProductModel product)>();
+
+            foreach (var sale in sales)
+            {
+                var client = clientCRUD.ReadById(sale.ClientId);
+                var product = prodCRUD.ReadById(sale.ProductId);
+
+                if(product != null && client != null)formatSales.Add((sale, client, product!)); 
+            }
+
+            gridSellItems.DataSource = null;
+            gridSellItems.DataSource = formatSales.Select(x => new
+            {
+                x.sale.Id,
+                x.client.CPF,
+                x.product.Product,
+                x.product.Category,
+                x.product.Value,
+                x.sale.Amount,
+                x.sale.TotalValue
+            }).ToList();
+        }
+
         private void gridSellItems_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
         {
-            try
-            {
-                var saleProd = gridSellItems.Rows[e.RowIndex].DataBoundItem as SaleModel;
-                if (gridSellItems.Columns[e.ColumnIndex].Name == "gridProd") e.Value = saleProd.Product.Name;
-                if (gridSellItems.Columns[e.ColumnIndex].Name == "gridCategory") e.Value = saleProd.Product.Category;
-                if (gridSellItems.Columns[e.ColumnIndex].Name == "gridValue") e.Value = saleProd.Product.Value;
-            }
-            catch (Exception ex)
-            {
-                ShowMessages.Error(ex, "Register Sales List");
-            }
+            
         }
 
         private void btnSubmit_Click(object sender, EventArgs e)

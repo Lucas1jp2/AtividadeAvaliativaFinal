@@ -73,7 +73,7 @@ namespace AtividadeAvaliativaFinal.Model
             {
                 string json = File.ReadAllText(DBJson.Products);
                 var products = JsonSerializer.Deserialize<List<ProductModel>>(json);
-                var product = products.FirstOrDefault(p => p.Name == name);
+                var product = products.FirstOrDefault(p => p.Product == name);
 
                 if (product != null) return product;
                 else return new ProductModel();
@@ -96,7 +96,7 @@ namespace AtividadeAvaliativaFinal.Model
 
                 if (_product != null)
                 {
-                    _product.Name = product.Name;
+                    _product.Product = product.Product;
                     _product.Category = product.Category;
                     _product.Value = product.Value;
                     _product.Amount = product.Amount;

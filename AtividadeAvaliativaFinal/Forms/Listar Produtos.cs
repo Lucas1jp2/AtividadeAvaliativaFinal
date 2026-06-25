@@ -28,15 +28,15 @@ namespace AtividadeAvaliativaFinal.Forms
 
             if (txtFilter.Text.Replace(" ", "").Length > 0 && txtCategory.Text.Replace(" ", "").Length > 0)
             {
-                ProdList.AddRange(formatList.Where(p => p.Name == txtFilter.Text && p.Category == txtCategory.Text));
+                ProdList.AddRange(formatList.Where(p => p.Product == txtFilter.Text && p.Category == txtCategory.Text));
             }
             else if (txtFilter.Text.Replace(" ", "").Length > 0 && txtCategory.Text.Replace(" ", "").Length == 0)
             {
-                ProdList.AddRange(formatList.Where(p => p.Name == txtFilter.Text));
+                ProdList.AddRange(formatList.Where(p => p.Product == txtFilter.Text));
             }
             else if (txtCategory.Text.Replace(" ", "").Length == 0 && txtCategory.Text.Replace(" ", "").Length > 0)
             {
-                ProdList.AddRange(formatList.Where(p => p.Name == txtCategory.Text));
+                ProdList.AddRange(formatList.Where(p => p.Product == txtCategory.Text));
             }
             else ProdList.AddRange(formatList);
 

@@ -81,11 +81,38 @@ namespace AtividadeAvaliativaFinal.Model
         {
             try
             {
-                string json = File.ReadAllText(DBJson.Clients);
-                var clients = JsonSerializer.Deserialize<List<ClientModel>>(json);
-                var client = clients.FirstOrDefault(c => c.Name == name);
+                if(!Checker.NumInText(name))
+                {
+                    string json = File.ReadAllText(DBJson.Clients);
+                    var clients = JsonSerializer.Deserialize<List<ClientModel>>(json);
+                    var client = clients.FirstOrDefault(c => c.Name == name);
 
-                if (client != null) return client;
+                    if (client != null) return client;
+                    else return new ClientModel();
+                }
+                
+                else return new ClientModel();
+            }
+            catch (Exception ex)
+            {
+                ShowMessages.Error(ex, "Get User", "Cannot get user.");
+                return new ClientModel();
+            }
+        }
+
+        public ClientModel ReadByCPF(string cpf)
+        {
+            try
+            {
+                if(Checker.ValidCPF(cpf))
+                {
+                    string json = File.ReadAllText(DBJson.Clients);
+                    var clients = JsonSerializer.Deserialize<List<ClientModel>>(json);
+                    var client = clients.FirstOrDefault(c => c.CPF == cpf);
+
+                    if (client != null) return client;
+                    else return new ClientModel();
+                }
                 else return new ClientModel();
             }
             catch (Exception ex)

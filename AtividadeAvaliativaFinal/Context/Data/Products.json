@@ -1,7 +1,7 @@
 [
   {
     "Id":0,
-    "Name": "Ping",
+    "Product": "Ping",
     "Category": "Pong",
     "Value": 0.1,
     "Amount": 2,

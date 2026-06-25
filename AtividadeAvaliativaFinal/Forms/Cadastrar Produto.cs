@@ -31,7 +31,7 @@ namespace AtividadeAvaliativaFinal.Forms
                 ProductModel product = new ProductModel
                 {
                     Id = CRUD.GenId(),
-                    Name = txtName.Text,
+                    Product = txtName.Text,
                     Category = txtCategory.Text,
                     Value = Convert.ToDouble(txtValue.Value),
                     Amount = Convert.ToInt16(txtAmount.Value),

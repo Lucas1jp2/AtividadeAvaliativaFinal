@@ -38,13 +38,6 @@
             btnSubmit = new Button();
             btnAddInList = new Button();
             gridSellItems = new DataGridView();
-            gridId = new DataGridViewTextBoxColumn();
-            gridCpf = new DataGridViewTextBoxColumn();
-            gridProd = new DataGridViewTextBoxColumn();
-            gridCategory = new DataGridViewTextBoxColumn();
-            gridValue = new DataGridViewTextBoxColumn();
-            gridAmount = new DataGridViewTextBoxColumn();
-            gridTotal = new DataGridViewTextBoxColumn();
             label2 = new Label();
             label3 = new Label();
             label4 = new Label();
@@ -54,6 +47,13 @@
             cbClient = new ComboBox();
             cbProd = new ComboBox();
             txtAmountBuy = new NumericUpDown();
+            gridId = new DataGridViewTextBoxColumn();
+            gridCpf = new DataGridViewTextBoxColumn();
+            gridProd = new DataGridViewTextBoxColumn();
+            gridCategory = new DataGridViewTextBoxColumn();
+            gridValue = new DataGridViewTextBoxColumn();
+            gridAmount = new DataGridViewTextBoxColumn();
+            gridTotal = new DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)gridSellItems).BeginInit();
             ((System.ComponentModel.ISupportInitialize)txtAmountBuy).BeginInit();
             SuspendLayout();
@@ -126,7 +126,6 @@
             // 
             gridSellItems.AllowUserToAddRows = false;
             gridSellItems.AllowUserToOrderColumns = true;
-            gridSellItems.AutoGenerateColumns = false;
             gridSellItems.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             gridSellItems.Columns.AddRange(new DataGridViewColumn[] { gridId, gridCpf, gridProd, gridCategory, gridValue, gridAmount, gridTotal });
             gridSellItems.Location = new Point(39, 245);
@@ -137,66 +136,6 @@
             gridSellItems.TabIndex = 17;
             gridSellItems.CellContentClick += dataGridView1_CellContentClick;
             gridSellItems.CellFormatting += gridSellItems_CellFormatting;
-            // 
-            // gridId
-            // 
-            gridId.DataPropertyName = "Id";
-            gridId.HeaderText = "Codigo Venda";
-            gridId.MinimumWidth = 8;
-            gridId.Name = "gridId";
-            gridId.Width = 150;
-            // 
-            // gridCpf
-            // 
-            gridCpf.DataPropertyName = "Client";
-            gridCpf.HeaderText = "Cpf - Cliente";
-            gridCpf.MinimumWidth = 8;
-            gridCpf.Name = "gridCpf";
-            gridCpf.Width = 150;
-            // 
-            // gridProd
-            // 
-            gridProd.DataPropertyName = "Name";
-            gridProd.HeaderText = "Produto";
-            gridProd.MinimumWidth = 8;
-            gridProd.Name = "gridProd";
-            gridProd.Width = 150;
-            // 
-            // gridCategory
-            // 
-            gridCategory.DataPropertyName = "Category";
-            gridCategory.HeaderText = "Categoria";
-            gridCategory.MinimumWidth = 8;
-            gridCategory.Name = "gridCategory";
-            gridCategory.Width = 150;
-            // 
-            // gridValue
-            // 
-            gridValue.DataPropertyName = "Value";
-            dataGridViewCellStyle1.Format = "C2";
-            gridValue.DefaultCellStyle = dataGridViewCellStyle1;
-            gridValue.HeaderText = "Valor Unitário";
-            gridValue.MinimumWidth = 8;
-            gridValue.Name = "gridValue";
-            gridValue.Width = 150;
-            // 
-            // gridAmount
-            // 
-            gridAmount.DataPropertyName = "Amount";
-            gridAmount.HeaderText = "Quantidade";
-            gridAmount.MinimumWidth = 8;
-            gridAmount.Name = "gridAmount";
-            gridAmount.Width = 150;
-            // 
-            // gridTotal
-            // 
-            gridTotal.DataPropertyName = "TotalValue";
-            dataGridViewCellStyle2.Format = "C2";
-            gridTotal.DefaultCellStyle = dataGridViewCellStyle2;
-            gridTotal.HeaderText = "Total";
-            gridTotal.MinimumWidth = 8;
-            gridTotal.Name = "gridTotal";
-            gridTotal.Width = 150;
             // 
             // label2
             // 
@@ -278,6 +217,66 @@
             txtAmountBuy.Size = new Size(320, 23);
             txtAmountBuy.TabIndex = 26;
             txtAmountBuy.ValueChanged += txtAmountBuy_ValueChanged;
+            // 
+            // gridId
+            // 
+            gridId.DataPropertyName = "Id";
+            gridId.HeaderText = "Codigo Venda";
+            gridId.MinimumWidth = 8;
+            gridId.Name = "gridId";
+            gridId.Width = 150;
+            // 
+            // gridCpf
+            // 
+            gridCpf.DataPropertyName = "CPF";
+            gridCpf.HeaderText = "Cpf - Cliente";
+            gridCpf.MinimumWidth = 8;
+            gridCpf.Name = "gridCpf";
+            gridCpf.Width = 150;
+            // 
+            // gridProd
+            // 
+            gridProd.DataPropertyName = "Product";
+            gridProd.HeaderText = "Produto";
+            gridProd.MinimumWidth = 8;
+            gridProd.Name = "gridProd";
+            gridProd.Width = 150;
+            // 
+            // gridCategory
+            // 
+            gridCategory.DataPropertyName = "Category";
+            gridCategory.HeaderText = "Categoria";
+            gridCategory.MinimumWidth = 8;
+            gridCategory.Name = "gridCategory";
+            gridCategory.Width = 150;
+            // 
+            // gridValue
+            // 
+            gridValue.DataPropertyName = "Value";
+            dataGridViewCellStyle1.Format = "C2";
+            gridValue.DefaultCellStyle = dataGridViewCellStyle1;
+            gridValue.HeaderText = "Valor Unitário";
+            gridValue.MinimumWidth = 8;
+            gridValue.Name = "gridValue";
+            gridValue.Width = 150;
+            // 
+            // gridAmount
+            // 
+            gridAmount.DataPropertyName = "Amount";
+            gridAmount.HeaderText = "Quantidade";
+            gridAmount.MinimumWidth = 8;
+            gridAmount.Name = "gridAmount";
+            gridAmount.Width = 150;
+            // 
+            // gridTotal
+            // 
+            gridTotal.DataPropertyName = "TotalValue";
+            dataGridViewCellStyle2.Format = "C2";
+            gridTotal.DefaultCellStyle = dataGridViewCellStyle2;
+            gridTotal.HeaderText = "Total";
+            gridTotal.MinimumWidth = 8;
+            gridTotal.Name = "gridTotal";
+            gridTotal.Width = 150;
             // 
             // Registrar_Venda
             // 
